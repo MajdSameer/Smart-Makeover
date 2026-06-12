@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Smart Makeover | Kitchen, Bathroom &amp; Full Home Renovations Sydney</title>
-<meta name="description" content="Smart Makeover designs and builds kitchen, bathroom and full-home renovations across Sydney. Licensed and insured, fixed-price quotes, schedules we actually keep. Call 0401 939 291 for a free quote.">
+<title>Smart Makeover | Kitchen, Bathroom &amp; Laundry Makeovers Sydney</title>
+<meta name="description" content="Sydney kitchen, bathroom and laundry makeovers: a third of the cost of a renovation, done in 10 days, without the mess. Call 0401 939 291 for a free quote.">
 <meta name="theme-color" content="#14181c">
 
 <!-- ===================================================================
@@ -12,19 +12,20 @@
   -------------------------------------------------------------------
   HOW TO EDIT THIS FILE
   1. Search for tokens in square brackets and replace with real info:
-       [EMAIL] [ABN] [LICENCE NO] [X] [NAME] [SUBURB] [REVIEW QUOTE] [YEAR]
+       [ABN] [LICENCE NO] [X] [SUBURB]
+     Phone, email, address and the Google reviews are already real.
   2. Every image is a clearly-marked SWAP SLOT. Search "SWAP IMAGE" and
-     replace the src with your own photo. Keep the alt text descriptive.
-     If a stock image ever fails to load, the page automatically shows a
-     tidy labelled placeholder instead of a broken image.
+     replace the src with your own photo (real before/after pairs will
+     do more selling than anything else on this page). If a stock image
+     ever fails to load, the page automatically shows a tidy labelled
+     placeholder instead of a broken image.
   3. The quote form posts nowhere yet. Search "CONNECT FORM" for the
      2-minute Formspree hookup instructions.
-  Phone number 0401 939 291 is already wired into every call button.
 ==================================================================== -->
 
 <!-- Open Graph (swap og:image with a real finished-project photo) -->
-<meta property="og:title" content="Smart Makeover | Home Renovations Sydney">
-<meta property="og:description" content="Kitchens, bathrooms and full-home makeovers, built properly. Free quotes: 0401 939 291.">
+<meta property="og:title" content="Smart Makeover | Kitchen &amp; Bathroom Makeovers Sydney">
+<meta property="og:description" content="A third of the cost of a renovation, done in 10 days, without the mess. Free quotes: 0401 939 291.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_AU">
 
@@ -39,7 +40,17 @@
   "@type": "HomeAndConstructionBusiness",
   "name": "Smart Makeover",
   "telephone": "+61 401 939 291",
-  "description": "Design-and-build kitchen, bathroom and full-home renovations across Sydney, NSW.",
+  "email": "info@smartmakeover.com.au",
+  "url": "https://smartmakeover.com.au",
+  "description": "Kitchen, bathroom and laundry makeovers across Sydney: a third of the cost of a renovation, completed in about 10 days.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Unit 4/100 Long St",
+    "addressLocality": "Smithfield",
+    "addressRegion": "NSW",
+    "postalCode": "2164",
+    "addressCountry": "AU"
+  },
   "areaServed": "Sydney, NSW, Australia",
   "priceRange": "$$"
 }
@@ -250,10 +261,10 @@ p{text-wrap:pretty}
 }
 .hero-inner{position:relative;z-index:2;width:100%}
 .hero h1{
-  font-size:clamp(2.8rem,7vw,5.6rem);
-  line-height:1.0;letter-spacing:-0.025em;
+  font-size:clamp(2.6rem,6.2vw,5.2rem);
+  line-height:1.02;letter-spacing:-0.025em;
   color:var(--ink-on-dark);
-  max-width:13ch;
+  max-width:24ch;
   margin-bottom:.4em;
 }
 .hero h1 em{font-style:italic;color:var(--terra-bright)}
@@ -340,17 +351,17 @@ p{text-wrap:pretty}
 .svc--photo h3{color:#fff}
 .svc--photo p{color:#ccd3d8}
 .svc--photo .svc-icon{background:rgba(245,246,247,.14);color:var(--terra-bright)}
-.svc--kitchen{grid-column:1/6;grid-row:1/3;min-height:440px}
-.svc--bath{grid-column:6/13;grid-row:1/2;min-height:230px}
-.svc--home{grid-column:6/10;grid-row:2/3;background:var(--char-900);border:none}
-.svc--home h3{color:var(--ink-on-dark)}
-.svc--home p{color:var(--muted-on-dark)}
-.svc--home .svc-icon{background:var(--char-800);color:var(--terra-bright)}
-.svc--extras{grid-column:10/13;grid-row:2/3;background:var(--tint);border:none}
+.svc--kitchen{grid-column:1/6;grid-row:1/3;min-height:460px}
+.svc--bath{grid-column:6/13;grid-row:1/2;min-height:250px}
+.svc--laundry{grid-column:6/13;grid-row:2/3;background:var(--tint);border:none;
+  flex-direction:row;align-items:center;gap:1.5rem}
+.svc--laundry .svc-icon{margin-bottom:0;background:var(--paper)}
 @media (max-width:860px){
-  .svc--kitchen,.svc--bath,.svc--home,.svc--extras{grid-column:1/-1;grid-row:auto}
+  .svc--kitchen,.svc--bath,.svc--laundry{grid-column:1/-1;grid-row:auto}
   .svc--kitchen{min-height:340px}
   .svc--bath{min-height:280px}
+  .svc--laundry{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .svc--laundry .svc-icon{margin-bottom:.4rem}
 }
 
 /* ======================= BEFORE / AFTER ======================= */
@@ -396,32 +407,31 @@ p{text-wrap:pretty}
   color:var(--muted);text-align:center;margin-top:-2px}
 @media (max-width:760px){.ba-grid{grid-template-columns:1fr}}
 
-/* ========================= GUARANTEES ========================= */
-.promise-grid{
-  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);
-  gap:clamp(2.5rem,6vw,5rem);align-items:start;
+/* =================== MAKEOVER VS RENOVATION =================== */
+/* The core argument, staged as a versus panel. The makeover column
+   is white and slightly larger: the page takes a side, visibly.   */
+.vs-grid{
+  display:grid;grid-template-columns:1fr 1.08fr;gap:1.25rem;
+  align-items:stretch;margin-top:clamp(2rem,4vw,3rem);
 }
-.promise-intro h2{
-  font-size:clamp(2rem,4vw,3.3rem);
-  letter-spacing:-0.022em;line-height:1.06;margin-bottom:.55em;
+.vs-col{border-radius:var(--radius-card);padding:clamp(1.6rem,3vw,2.4rem)}
+.vs-col h3{font-size:1.35rem;letter-spacing:-0.015em;margin-bottom:1.3rem}
+.vs-col ul{display:grid;gap:1rem}
+.vs-col li{display:flex;gap:.75rem;align-items:flex-start;font-size:1.02rem;line-height:1.5}
+.vs-col li .icon{margin-top:.22em;width:1.1em;height:1.1em}
+.vs--reno{background:var(--char-800);color:var(--muted-on-dark)}
+.vs--reno h3{color:var(--ink-on-dark)}
+.vs--reno li .icon{color:#8d979e}
+.vs--us{
+  background:var(--paper);color:var(--ink);
+  box-shadow:0 28px 60px -30px rgba(0,0,0,.7);
 }
-.promise-intro p{font-size:1.1rem;max-width:44ch}
-.promise-intro .btn{margin-top:1.8rem}
-.promise-list{display:grid}
-.promise{
-  display:grid;grid-template-columns:auto 1fr;gap:1.1rem;
-  padding:1.4rem 0;align-items:start;
-}
-.promise + .promise{border-top:1px solid var(--line-dark)}
-.promise-ic{
-  width:44px;height:44px;border-radius:12px;flex:none;
-  background:var(--char-800);color:var(--terra-bright);
-  display:grid;place-items:center;
-}
-.promise-ic .icon{width:21px;height:21px}
-.promise h3{font-size:1.12rem;color:var(--ink-on-dark);margin-bottom:.25rem}
-.promise p{font-size:.97rem;max-width:56ch}
-@media (max-width:860px){.promise-grid{grid-template-columns:1fr}}
+.vs--us li{color:var(--muted)}
+.vs--us li b{color:var(--ink);font-weight:600}
+.vs--us li .icon{color:var(--terra)}
+.vs-note{margin-top:2.2rem;font-size:.95rem;max-width:72ch;color:var(--muted-on-dark)}
+.vs-ctas{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.4rem}
+@media (max-width:860px){.vs-grid{grid-template-columns:1fr}}
 
 /* =========================== PROCESS ========================== */
 /* A real 4-step sequence told as a sticky deck: each card pins
@@ -733,8 +743,9 @@ p{text-wrap:pretty}
       Smart&nbsp;Makeover
     </a>
     <nav class="site-nav" aria-label="Sections">
-      <a href="#services">Services</a>
-      <a href="#transformations">Transformations</a>
+      <a href="#services">Makeovers</a>
+      <a href="#why-us">Vs renovation</a>
+      <a href="#transformations">Gallery</a>
       <a href="#process">Process</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
@@ -764,8 +775,8 @@ p{text-wrap:pretty}
          data-slot="Hero photo: your best finished kitchen or living space">
   </div>
   <div class="container hero-inner">
-    <h1 data-rise="1">Love where you live, <em>again.</em></h1>
-    <p class="hero-sub" data-rise="2">Design-and-build kitchen, bathroom and full-home renovations across Sydney. Fixed quotes, licensed trades, schedules we actually keep.</p>
+    <h1 data-rise="1">Love your kitchen again. <em>Skip the renovation.</em></h1>
+    <p class="hero-sub" data-rise="2">Sydney's kitchen, bathroom and laundry makeover specialists. A third of the renovation cost, done in 10 days, without the mess.</p>
     <div class="hero-ctas" data-rise="3">
       <a class="btn btn--primary" href="#quote">
         <span>Get a Free Quote</span>
@@ -787,28 +798,28 @@ p{text-wrap:pretty}
   <div class="container">
     <div class="trust-card reveal">
       <div class="trust-item">
+        <strong>1/3 the cost</strong>
+        <span>of a full renovation</span>
+      </div>
+      <div class="trust-item">
+        <strong>10 days</strong>
+        <span>from start to finished space</span>
+      </div>
+      <div class="trust-item">
         <strong>
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-          Licensed &amp; insured
+          No demolition
         </strong>
-        <span>NSW builder licence [LICENCE&nbsp;NO]</span>
-      </div>
-      <div class="trust-item">
-        <strong>[X] years</strong>
-        <span>renovating Sydney homes</span>
-      </div>
-      <div class="trust-item">
-        <strong>[X]+ homes</strong>
-        <span>transformed across Sydney</span>
+        <span>the structure stays, the stress never starts</span>
       </div>
       <div class="trust-item">
         <strong>
           <span class="stars" aria-hidden="true">
             <svg class="icon icon--fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
           </span>
-          5-star rated
+          5.0 on Google
         </strong>
-        <span>by [X] local homeowners</span>
+        <span>rated excellent by local homeowners</span>
       </div>
     </div>
   </div>
@@ -821,8 +832,8 @@ p{text-wrap:pretty}
 <section class="section" id="services">
   <div class="container">
     <div class="section-head reveal">
-      <h2>Four ways to fall back in love with your home</h2>
-      <p>One licensed builder for the whole job: design, trades, certification and the clean-up. You deal with one team and one number from the first walk-through to handover.</p>
+      <h2>Three rooms, one smarter way to update them</h2>
+      <p>If the bones are good, we keep them. New doors, panels, benchtops, surfaces and fittings over your existing structure, from a single benchtop to the whole room.</p>
     </div>
     <div class="services-grid">
       <article class="svc svc--photo svc--kitchen reveal">
@@ -833,8 +844,8 @@ p{text-wrap:pretty}
         <span class="svc-icon" aria-hidden="true">
           <svg class="icon" viewBox="0 0 24 24"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></svg>
         </span>
-        <h3>Kitchens</h3>
-        <p>The room that does the heavy lifting. Layouts planned around how you actually cook, storage that swallows the clutter, benchtops chosen to last.</p>
+        <h3>Kitchen makeovers</h3>
+        <p>The room that does the heavy lifting. New doors, panels, benchtops and hardware over your existing carcasses, planned around how you actually cook.</p>
       </article>
       <article class="svc svc--photo svc--bath reveal" data-delay="1">
         <!-- SWAP IMAGE: bathroom service tile -->
@@ -844,22 +855,17 @@ p{text-wrap:pretty}
         <span class="svc-icon" aria-hidden="true">
           <svg class="icon" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
         </span>
-        <h3>Bathrooms</h3>
-        <p>Start your mornings somewhere better. Waterproofing done right the first time, fittings that feel solid, and tiling so straight you'll never think about it.</p>
+        <h3>Bathroom makeovers</h3>
+        <p>Start your mornings somewhere better. Vanities, surfaces and fixtures refreshed while the structure stays put. No gutting, no weeks of dust.</p>
       </article>
-      <article class="svc svc--home reveal" data-delay="2">
+      <article class="svc svc--laundry reveal" data-delay="2">
         <span class="svc-icon" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/></svg>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
         </span>
-        <h3>Full home makeovers</h3>
-        <p>One builder, one schedule, one finish date. We coordinate every trade so a whole-home renovation doesn't take over your whole life.</p>
-      </article>
-      <article class="svc svc--extras reveal" data-delay="3">
-        <span class="svc-icon" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
-        </span>
-        <h3>Laundries &amp; extras</h3>
-        <p>The smaller jobs that finish the picture: laundries, flooring, painting and alfresco areas, built to the same standard as the showpiece rooms.</p>
+        <div>
+          <h3>Laundry makeovers</h3>
+          <p>The hardest-working room in the house. Fresh surfaces, smarter storage and fittings that make wash day easier, finished to the same standard as the showpiece rooms.</p>
+        </div>
       </article>
     </div>
   </div>
@@ -892,8 +898,8 @@ p{text-wrap:pretty}
                  aria-label="Compare before and after photos. Left shows before, right shows after.">
         </div>
         <figcaption class="ba-caption">
-          <span><b>Before</b> the original space</span>
-          <span><b>After</b> [SUBURB] kitchen, completed [YEAR]</span>
+          <span><b>Before</b> the original kitchen</span>
+          <span><b>After</b> [SUBURB] kitchen makeover, completed in [X] days</span>
         </figcaption>
       </figure>
 
@@ -910,13 +916,13 @@ p{text-wrap:pretty}
                  width="700" height="540" data-slot="Bathroom AFTER photo">
           </div>
           <div class="ba-pair-labels" aria-hidden="true"><span>Before</span><span>After</span></div>
-          <figcaption><b>[SUBURB] ensuite</b> [one-line project note]</figcaption>
+          <figcaption><b>[SUBURB] bathroom makeover</b> [one-line project note]</figcaption>
         </figure>
         <figure class="ba-pair reveal" data-delay="1">
           <div class="ba-pair-imgs">
             <!-- SWAP IMAGE: living area before -->
             <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=700&q=80"
-                 alt="Before: living area prior to the full home makeover" loading="lazy"
+                 alt="Before: living area prior to the makeover" loading="lazy"
                  width="700" height="540" data-slot="Living area BEFORE photo">
             <!-- SWAP IMAGE: living area after -->
             <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=700&q=80"
@@ -924,7 +930,7 @@ p{text-wrap:pretty}
                  width="700" height="540" data-slot="Living area AFTER photo">
           </div>
           <div class="ba-pair-labels" aria-hidden="true"><span>Before</span><span>After</span></div>
-          <figcaption><b>[SUBURB] full home makeover</b> [one-line project note]</figcaption>
+          <figcaption><b>[SUBURB] kitchen and living makeover</b> [one-line project note]</figcaption>
         </figure>
       </div>
     </div>
@@ -932,53 +938,67 @@ p{text-wrap:pretty}
 </section>
 
 <!-- =================================================================
-     WHY CHOOSE US. The four promises that close high-ticket jobs.
+     MAKEOVER VS RENOVATION. The core argument: if the bones are
+     good, you don't need to demolish anything to get a new space.
 ================================================================== -->
 <section class="section section--dark" id="why-us">
-  <div class="container promise-grid">
-    <div class="promise-intro reveal">
-      <h2>Renovate without holding your breath</h2>
-      <p>Most renovation horror stories start with a vague quote and a builder who stops answering the phone. Ours start with paperwork and end with a handover.</p>
-      <a class="btn btn--primary" href="#quote"><span>Get a Free Quote</span></a>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Why a makeover beats a renovation</h2>
+      <p>If your cabinetry carcasses are sound, or your bathroom's structure is intact, you don't need to demolish anything to get a new-looking space. That's the whole idea.</p>
     </div>
-    <ul class="promise-list">
-      <li class="promise reveal">
-        <span class="promise-ic" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-        </span>
-        <div>
-          <h3>Licensed and insured, in writing</h3>
-          <p>NSW builder licence [LICENCE NO], public liability insurance and home building compensation cover on every eligible job. Ask to see the certificates; we like being asked.</p>
-        </div>
-      </li>
-      <li class="promise reveal" data-delay="1">
-        <span class="promise-ic" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
-        </span>
-        <div>
-          <h3>Fixed-price quotes</h3>
-          <p>The number we quote is the number you pay. Variations only happen when you change the scope, and they're priced and signed off before any work continues.</p>
-        </div>
-      </li>
-      <li class="promise reveal" data-delay="2">
-        <span class="promise-ic" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
-        </span>
-        <div>
-          <h3>On time, on budget</h3>
-          <p>You get a written schedule before we start and a progress update every week. If anything moves, you hear it from us first, with the reason and the new date.</p>
-        </div>
-      </li>
-      <li class="promise reveal" data-delay="3">
-        <span class="promise-ic" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-        </span>
-        <div>
-          <h3>Workmanship guarantee</h3>
-          <p>A [X]-year warranty on our workmanship, on top of your statutory protections under NSW building law. If something's not right, we come back and make it right.</p>
-        </div>
-      </li>
-    </ul>
+    <div class="vs-grid">
+      <div class="vs-col vs--reno reveal">
+        <h3>The full renovation</h3>
+        <ul>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Demolition first, then weeks of trades through your home
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            The full renovation budget, plus the surprises behind the walls
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Kitchen or bathroom out of action while you wait
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Skip bins of perfectly good cabinetry headed to landfill
+          </li>
+        </ul>
+      </div>
+      <div class="vs-col vs--us reveal" data-delay="1">
+        <h3>The Smart Makeover</h3>
+        <ul>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><b>About 10 days</b> from start to reveal, working around your routine</span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><b>A third of the cost</b>, because the structure you paid for stays</span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><b>Your choice of finishes</b>: doors, panels, benchtops, colours and fittings</span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><b>Less waste</b>: the existing bones are reused, not binned</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="vs-note reveal">Licensed and insured (licence [LICENCE NO]), with a [X]-year workmanship warranty on every makeover. Durable, modern finishes built for daily family life.</p>
+    <div class="vs-ctas reveal">
+      <a class="btn btn--primary" href="#quote"><span>Get a Free Quote</span></a>
+      <a class="btn btn--ghost" href="tel:0401939291">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call 0401 939 291
+      </a>
+    </div>
   </div>
 </section>
 
@@ -989,16 +1009,16 @@ p{text-wrap:pretty}
 <section class="section" id="process">
   <div class="container">
     <div class="section-head reveal">
-      <h2>From first walk-through to handover</h2>
-      <p>Four steps, no mysteries. Keep scrolling; each step settles into place before the next arrives, which is also how we build.</p>
+      <h2>From first call to reveal, in four steps</h2>
+      <p>No mysteries and no months of waiting: the makeover itself takes about 10 days. Keep scrolling; each step settles into place before the next arrives.</p>
     </div>
     <ol class="stack">
       <li>
         <div class="pcard pcard--1">
           <div class="pcard-num" aria-hidden="true">1</div>
           <div>
-            <h3>Consult</h3>
-            <p>We walk the space with you, talk through ideas and budget honestly, and measure everything that matters. You'll know the same day whether we're the right fit for the job.</p>
+            <h3>Book your free makeover call</h3>
+            <p>Thirty minutes on the phone, or less. We talk through your kitchen, bathroom or laundry, your taste and your budget, and whether a makeover will get you the result you want.</p>
           </div>
         </div>
       </li>
@@ -1006,8 +1026,8 @@ p{text-wrap:pretty}
         <div class="pcard pcard--2">
           <div class="pcard-num" aria-hidden="true">2</div>
           <div>
-            <h3>Design &amp; quote</h3>
-            <p>You get a detailed fixed-price quote and a realistic schedule, with selections itemised so you can see where every dollar goes. No vague allowances that blow out later.</p>
+            <h3>Assessment &amp; fixed quote</h3>
+            <p>We check that your carcasses or structure are sound, measure up, and help you pick finishes, colours and fittings. You get a customised plan with a fixed price, even if it's just a benchtop.</p>
           </div>
         </div>
       </li>
@@ -1015,8 +1035,8 @@ p{text-wrap:pretty}
         <div class="pcard pcard--3">
           <div class="pcard-num" aria-hidden="true">3</div>
           <div>
-            <h3>Build</h3>
-            <p>Licensed trades, a tidy site and a weekly progress update. We seal off the work zone and protect the rest of your home while we work, then leave it broom-clean every day.</p>
+            <h3>The makeover</h3>
+            <p>About 10 days on site. New doors, panels, benchtops, surfaces and fittings go on while the structure stays put, the mess stays contained and your home stays liveable.</p>
           </div>
         </div>
       </li>
@@ -1024,8 +1044,8 @@ p{text-wrap:pretty}
         <div class="pcard pcard--4">
           <div class="pcard-num" aria-hidden="true">4</div>
           <div>
-            <h3>Handover</h3>
-            <p>A final walk-through together, every detail checked off the list, and your warranty paperwork in hand. Then the room is yours, and so is our number if you ever need it.</p>
+            <h3>The reveal</h3>
+            <p>A final walk-through together, warranty paperwork in hand. Then enjoy the double-takes when guests find out it isn't a brand-new renovation.</p>
           </div>
         </div>
       </li>
@@ -1034,8 +1054,9 @@ p{text-wrap:pretty}
 </section>
 
 <!-- =================================================================
-     TESTIMONIALS. Drop real Google reviews into the [REVIEW QUOTE]
-     slots; never publish invented ones. Keep quotes to 2-3 lines.
+     TESTIMONIALS. These are real Google reviews from the existing
+     smartmakeover.com.au site, lightly trimmed for length. Swap or
+     add new ones as they come in; keep quotes to 2-3 lines.
 ================================================================== -->
 <section class="section section--tint" id="reviews">
   <div class="container">
@@ -1043,9 +1064,9 @@ p{text-wrap:pretty}
       <div class="section-head" style="margin-bottom:0">
         <h2>What Sydney homeowners say</h2>
       </div>
-      <span class="gbadge">Rated <b>[4.X]</b>
+      <span class="gbadge">Rated <b>5.0</b>
         <span class="stars" aria-hidden="true"><svg class="icon icon--fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg></span>
-        from [X] Google reviews</span>
+        excellent on Google</span>
     </div>
     <div class="review-grid">
       <article class="review reveal">
@@ -1053,10 +1074,10 @@ p{text-wrap:pretty}
         <span class="stars" aria-label="5 out of 5 stars">
           <svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
         </span>
-        <p>[REVIEW QUOTE: paste a real Google review about a kitchen renovation here, two to three lines.]</p>
+        <p>So happy with my kitchen. Leon and his team did an incredible job: great communication, great workmanship, awesome timing. Cannot recommend Smart Makeover enough.</p>
         <footer>
-          <b>[NAME]</b>
-          <span>[SUBURB], kitchen renovation</span>
+          <b>Lenny</b>
+          <span>Google review, kitchen makeover</span>
         </footer>
       </article>
       <article class="review review--feature reveal" data-delay="1">
@@ -1064,10 +1085,10 @@ p{text-wrap:pretty}
         <span class="stars" aria-label="5 out of 5 stars">
           <svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
         </span>
-        <p>[REVIEW QUOTE: put your strongest review here, the one that mentions trust, schedule or budget. This card is the one visitors read.]</p>
+        <p>I smile every day walking into my kitchen, and everyone remarks on it. They cannot believe that it's a makeover, brought to life from its 80s look.</p>
         <footer>
-          <b>[NAME]</b>
-          <span>[SUBURB], full home makeover</span>
+          <b>Yvonne Robb</b>
+          <span>Google review, kitchen makeover</span>
         </footer>
       </article>
       <article class="review reveal" data-delay="2">
@@ -1075,10 +1096,10 @@ p{text-wrap:pretty}
         <span class="stars" aria-label="5 out of 5 stars">
           <svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
         </span>
-        <p>[REVIEW QUOTE: paste a real bathroom or laundry review here, two to three lines.]</p>
+        <p>Leon's excellent skills and efficient communication made the entire process easy and straightforward. He incorporated my preferences and completed the project in under 6 days.</p>
         <footer>
-          <b>[NAME]</b>
-          <span>[SUBURB], bathroom renovation</span>
+          <b>Haren Jayasinghe</b>
+          <span>Google review, kitchen and bathroom resurfacing</span>
         </footer>
       </article>
     </div>
@@ -1128,7 +1149,7 @@ p{text-wrap:pretty}
         <p>Hurstville, Kogarah, Brighton-Le-Sands, Sans Souci</p>
       </div>
     </div>
-    <p class="areas-note reveal">Don't see your suburb? If you're in greater Sydney, you're probably in range. <a href="tel:0401939291">Call 0401 939 291</a> and ask.</p>
+    <p class="areas-note reveal">Based in Smithfield, working across greater Sydney. Don't see your suburb? You're probably still in range: <a href="tel:0401939291">call 0401 939 291</a> and ask.</p>
   </div>
 </section>
 
@@ -1138,8 +1159,8 @@ p{text-wrap:pretty}
 <section class="section section--tint" id="faq">
   <div class="container faq-grid">
     <div class="faq-intro reveal">
-      <h2>Questions every smart renovator asks</h2>
-      <p>If yours isn't here, the fastest answer is a phone call. No scripts, no pressure, just a builder on the other end.</p>
+      <h2>Questions every smart homeowner asks</h2>
+      <p>If yours isn't here, the fastest answer is a phone call. No scripts, no pressure, just the team that does the work.</p>
       <a class="faq-call" href="tel:0401939291">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         0401 939 291
@@ -1148,45 +1169,45 @@ p{text-wrap:pretty}
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          How much does a renovation cost?
+          Is my kitchen or bathroom suitable for a makeover?
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a"><div><p>It depends on the size of the space, the materials you choose and what's hiding behind the walls. That's exactly why we quote fixed prices after a free on-site consult instead of guessing over the phone. You'll know your real number before any work starts, and it won't quietly grow.</p></div></div>
+        <div class="faq-a"><div><p>Yes, if your kitchen carcasses are in good condition, or your bathroom's structure is intact. That's exactly what the free assessment checks, and if a makeover won't get you the result you want, we'll tell you straight.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          How long will my renovation take?
+          How can a makeover cost a third of a renovation?
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a"><div><p>A single bathroom or kitchen typically runs a few weeks; a full home makeover runs months. Whatever the scope, you get a written schedule before we start and a weekly update during the build, so the finish date is something you watch, not something you wonder about.</p></div></div>
+        <div class="faq-a"><div><p>Because we keep what's structurally sound and replace what you see and touch: doors, panels, benchtops, surfaces and fixtures. You skip the demolition, the skip bins and the weeks of trade time, which is where renovation budgets actually go.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          Can we live at home during the build?
+          Do we choose the materials, colours and fittings?
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a"><div><p>For single-room renovations, almost always. We seal off the work zone, protect floors and furniture, and leave the site safe and tidy at the end of every day. For full-home jobs we'll talk honestly about which stages are liveable and which aren't, before you commit.</p></div></div>
+        <div class="faq-a"><div><p>Yes. You pick the finishes, colours and fittings, and we help you choose combinations that work in your space. The flexibility to customise without the cost of a complete overhaul is most of the point.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          Do you handle council approvals?
+          Is the finished product durable, and is there a warranty?
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a"><div><p>Many cosmetic renovations don't need approval at all. Where consent or certification is required, we tell you up front, prepare what's needed and coordinate with the certifier, so nothing gets built that can't be signed off.</p></div></div>
+        <div class="faq-a"><div><p>The materials are chosen for daily family use, not just for the reveal photos, and every makeover is backed by our [X]-year workmanship warranty. If something's not right, we come back and make it right.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          What warranty do we get?
+          Can we use the kitchen or bathroom during the makeover?
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a"><div><p>You're covered twice: our own [X]-year workmanship warranty, plus the statutory warranties that NSW building law attaches to residential work. Both are written into your contract, not promised over a handshake.</p></div></div>
+        <div class="faq-a"><div><p>Your home stays liveable throughout: there's no demolition, and we work around your routine. We'll plan the few days each space is out of action with you before we start, so there are no surprises.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          How do payments work?
+          Is Smart Makeover licensed and insured?
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a"><div><p>Staged payments tied to completed milestones, with the deposit capped as NSW law requires. You pay for work you can walk through and see, never for promises.</p></div></div>
+        <div class="faq-a"><div><p>Yes: licence [LICENCE NO], fully insured. Ask to see the certificates at your free assessment; we like being asked. And if you're a pensioner or a local resident, ask about a discount while you're at it.</p></div></div>
       </div>
     </div>
   </div>
@@ -1203,20 +1224,20 @@ p{text-wrap:pretty}
 <section class="section section--dark" id="quote">
   <div class="container quote-grid">
     <div class="quote-intro reveal">
-      <h2>Tell us about your project. <em>We'll bring the plan.</em></h2>
-      <p>Send the form or pick up the phone. Either way you'll be talking to the builder, not a call centre.</p>
+      <h2>Book your free <em>Smart Makeover call.</em></h2>
+      <p>Thirty minutes on the phone, or less, and you'll know exactly what your space needs. You'll be talking to the team that does the work, not a call centre.</p>
       <ul class="next-steps">
         <li>
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          We call you back within 24 hours
+          We look at your current kitchen, bathroom or laundry
         </li>
         <li>
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          Free on-site consult and measure-up
+          We walk through your options for the space
         </li>
         <li>
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          Fixed-price quote in writing
+          You get a customised plan and a fixed-price quote
         </li>
       </ul>
       <div class="quote-call">
@@ -1263,18 +1284,18 @@ p{text-wrap:pretty}
           <label for="f-type">Project type <span class="req" aria-hidden="true">*</span></label>
           <select id="f-type" name="project_type" required>
             <option value="" selected disabled>Choose one</option>
-            <option>Kitchen renovation</option>
-            <option>Bathroom renovation</option>
-            <option>Laundry or another room</option>
-            <option>Full home makeover</option>
-            <option>Something else</option>
+            <option>Kitchen makeover</option>
+            <option>Bathroom makeover</option>
+            <option>Laundry makeover</option>
+            <option>Benchtop or something smaller</option>
+            <option>Not sure yet</option>
           </select>
           <p class="field-error" id="err-type">Pick the closest match.</p>
         </div>
 
         <div class="field">
-          <label for="f-msg">Tell us about the project <span class="opt">(optional)</span></label>
-          <textarea id="f-msg" name="message" rows="3" placeholder="e.g. 1990s kitchen, wall we'd love to remove, hoping to start in spring"></textarea>
+          <label for="f-msg">Tell us about the space <span class="opt">(optional)</span></label>
+          <textarea id="f-msg" name="message" rows="3" placeholder="e.g. 90s kitchen, carcasses still solid, dreaming of stone-look benchtops"></textarea>
         </div>
 
         <!-- honeypot: bots fill this, humans never see it -->
@@ -1303,8 +1324,8 @@ p{text-wrap:pretty}
 </main>
 
 <!-- =================================================================
-     FOOTER. Replace [EMAIL], [ABN] and [LICENCE NO] before launch,
-     and point the social links at your real profiles.
+     FOOTER. Replace [ABN] and [LICENCE NO] before launch, and point
+     the social links at your real profiles.
 ================================================================== -->
 <footer class="site-footer">
   <div class="container">
@@ -1318,13 +1339,16 @@ p{text-wrap:pretty}
           <span class="brand-mark" aria-hidden="true">SM</span>
           Smart&nbsp;Makeover
         </a>
-        <p>Design-and-build renovations for Sydney homes: kitchens, bathrooms, laundries and full home makeovers, finished properly.</p>
+        <p>Kitchen, bathroom and laundry makeovers for Sydney homes: a third of the price, in about 10 days, without the mess or renovation hassles.</p>
         <div class="socials">
-          <a href="#" aria-label="Smart Makeover on Instagram">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
           <a href="#" aria-label="Smart Makeover on Facebook">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="Smart Makeover on YouTube">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+          </a>
+          <a href="#" aria-label="Smart Makeover on Instagram">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
         </div>
       </div>
@@ -1332,17 +1356,17 @@ p{text-wrap:pretty}
         <h3>Talk to us</h3>
         <ul class="footer-list">
           <li><a class="tel" href="tel:0401939291">0401 939 291</a></li>
-          <li><a href="mailto:[EMAIL]">[EMAIL]</a></li>
-          <li>Mon to Sat, 7am to 6pm</li>
+          <li><a href="mailto:info@smartmakeover.com.au">info@smartmakeover.com.au</a></li>
+          <li>Unit 4/100 Long St,<br>Smithfield NSW 2164</li>
         </ul>
       </div>
       <div>
-        <h3>Services</h3>
+        <h3>Makeovers</h3>
         <ul class="footer-list">
-          <li><a href="#services">Kitchens</a></li>
-          <li><a href="#services">Bathrooms</a></li>
-          <li><a href="#services">Full home makeovers</a></li>
-          <li><a href="#services">Laundries &amp; extras</a></li>
+          <li><a href="#services">Kitchen makeovers</a></li>
+          <li><a href="#services">Bathroom makeovers</a></li>
+          <li><a href="#services">Laundry makeovers</a></li>
+          <li><a href="#why-us">Makeover vs renovation</a></li>
         </ul>
       </div>
       <div>
@@ -1356,8 +1380,8 @@ p{text-wrap:pretty}
       </div>
     </div>
     <div class="footer-legal">
-      <span>&copy; <span id="year">2026</span> Smart Makeover. ABN [ABN]. NSW builder licence [LICENCE NO].</span>
-      <span>Sydney, NSW</span>
+      <span>&copy; <span id="year">2026</span> Smart Makeover. ABN [ABN]. Licence [LICENCE NO].</span>
+      <span>Smithfield, Sydney NSW</span>
     </div>
   </div>
 </footer>
