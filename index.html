@@ -273,20 +273,21 @@ p{text-wrap:pretty}
 }
 .hero-inner{position:relative;z-index:2;width:100%}
 .hero h1{
-  font-size:clamp(2.6rem,6.6vw,5.6rem);
-  line-height:1.0;letter-spacing:-0.03em;
+  font-size:clamp(2.5rem,6.2vw,5.2rem);
+  line-height:1.05;letter-spacing:-0.03em;
   color:var(--ink-on-dark);
-  max-width:18ch;
-  margin-bottom:.45em;
+  max-width:min(100%,30ch);
+  margin-bottom:.5em;
 }
 /* each headline line sits in an overflow-clipped track so it can rise
-   from below its own mask: the editorial reveal */
-.hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+   from below its own mask. Padding + matching negative margin reserve
+   room for descenders (y, g, p) so the clip never crops the tails. */
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.18em;margin-bottom:-.12em}
 .hero h1 .line>span{display:block;will-change:transform}
 .hero h1 em{font-style:italic;color:var(--brand-bright);position:relative}
 /* a red underline draws in beneath the emphasis line */
 .hero h1 em::after{
-  content:"";position:absolute;left:0;right:0;bottom:-.04em;height:3px;border-radius:2px;
+  content:"";position:absolute;left:0;right:0;bottom:-.02em;height:3px;border-radius:2px;
   background:var(--brand-bright);transform:scaleX(0);transform-origin:left;
 }
 .hero-sub{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:36rem;margin-bottom:2.2rem;color:#dde2e6}
@@ -348,7 +349,8 @@ p{text-wrap:pretty}
   box-shadow:0 30px 60px -35px rgba(13,20,40,.5);
   display:grid;grid-template-columns:repeat(4,1fr);
 }
-.trust-item{padding:1.6rem 1.75rem;display:flex;flex-direction:column;gap:.2rem}
+.trust-item{padding:1.6rem 1.75rem;display:flex;flex-direction:column;justify-content:center;gap:.25rem}
+.trust-item strong{min-height:1.9rem}
 .trust-item + .trust-item{border-left:1px solid var(--line)}
 .trust-item strong{
   font-family:"Bricolage Grotesque","Hanken Grotesk",sans-serif;font-optical-sizing:auto;font-size:1.55rem;font-weight:700;
@@ -876,7 +878,7 @@ p{text-wrap:pretty}
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
           No demolition
         </strong>
-        <span>the structure stays, the stress never starts</span>
+        <span>the structure stays put</span>
       </div>
       <div class="trust-item">
         <strong>
@@ -885,7 +887,7 @@ p{text-wrap:pretty}
           </span>
           5.0 on Google
         </strong>
-        <span>rated excellent by local homeowners</span>
+        <span>rated excellent by locals</span>
       </div>
     </div>
   </div>
