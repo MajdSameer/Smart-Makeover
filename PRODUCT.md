@@ -24,10 +24,10 @@ Built, warm-grained, certain. Like oiled hardwood and a laser level line: warm m
 
 ## Visual language
 
-- Palette strategy: Committed. Deep forest ink carries the dark bands (hero, guarantee, final CTA, footer); pure white between; honey (oklch 0.764 0.120 77.1) as the single accent, under 10% of surface.
-- Type: Bricolage Grotesque for display, Hanken Grotesk for body and UI. Tabular figures for numbers.
-- Motion: restrained and purposeful. Strong ease-out curves, sub-300ms UI transitions, one orchestrated hero load-in, scroll reveals that enhance already-visible content, full prefers-reduced-motion fallback.
-- Imagery: real renovation photography (verified stock as swappable placeholders), one interactive before/after comparison slider.
+- Palette strategy: Committed. Cool charcoal carries the dark bands (hero, guarantee, final CTA, footer); pure white and a cool slate tint between; burnt terracotta as the single accent, under 10% of surface. Rust against cool grey: brick and steel, the materials of the trade.
+- Type: Archivo variable, one family doing all the work. Display runs expanded (118-125%) and heavy (800); body runs normal width. Tabular figures for numbers.
+- Motion: restrained and purposeful. Strong ease-out curves, sub-300ms UI transitions, a cinematic full-bleed hero load-in (photo settles from a slight zoom while copy rises), a pure-CSS sticky-deck process sequence, a one-time slider sweep that teaches the before/after affordance, scroll reveals that enhance already-visible content, full prefers-reduced-motion fallback.
+- Imagery: full-bleed hero photography, photographic bento tiles, one interactive before/after comparison slider. All stock placeholders are labelled swap slots.
 
 ## Anti-references (what this must NOT look like)
 
