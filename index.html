@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Makeover | Kitchen, Bathroom &amp; Full Home Renovations Sydney</title>
+<meta name="description" content="Smart Makeover designs and builds kitchen, bathroom and full-home renovations across Sydney. Licensed and insured, fixed-price quotes, schedules we actually keep. Call 0401 939 291 for a free quote.">
+<meta name="theme-color" content="#0d231c">
+
+<!-- ===================================================================
+  SMART MAKEOVER, single-file marketing site
+  -------------------------------------------------------------------
+  HOW TO EDIT THIS FILE
+  1. Search for tokens in square brackets and replace with real info:
+       [EMAIL] [ABN] [LICENCE NO] [X] [NAME] [SUBURB] [REVIEW QUOTE] [YEAR]
+  2. Every image is a clearly-marked SWAP SLOT. Search "SWAP IMAGE" and
+     replace the src with your own photo. Keep the alt text descriptive.
+     If a stock image ever fails to load, the page automatically shows a
+     tidy labelled placeholder instead of a broken image.
+  3. The quote form posts nowhere yet. Search "CONNECT FORM" for the
+     2-minute Formspree hookup instructions.
+  Phone number 0401 939 291 is already wired into every call button.
+==================================================================== -->
+
+<!-- Open Graph (swap og:image with a real finished-project photo) -->
+<meta property="og:title" content="Smart Makeover | Home Renovations Sydney">
+<meta property="og:description" content="Kitchens, bathrooms and full-home makeovers, built properly. Free quotes: 0401 939 291.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_AU">
+
+<!-- Favicon: SM monogram, honey on deep forest -->
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%230d231c"/><text x="32" y="42" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="%23d9a64e" text-anchor="middle">SM</text></svg>'>
+
+<!-- Local business structured data for Sydney search results.
+     Fill in url, address and abn before launch. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Smart Makeover",
+  "telephone": "+61 401 939 291",
+  "description": "Design-and-build kitchen, bathroom and full-home renovations across Sydney, NSW.",
+  "areaServed": "Sydney, NSW, Australia",
+  "priceRange": "$$"
+}
+</script>
+
+<!-- Typography: Bricolage Grotesque (display) + Hanken Grotesk (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===================================================================
+   DESIGN TOKENS
+   Palette strategy: "Committed". Deep forest ink carries the dark
+   bands, pure white between, honey is the single accent (<10%).
+   Honey anchor: oklch(0.764 0.120 77.1).
+   Shape system: buttons + chips are full pills, cards and media 16px,
+   inputs 12px. One radius rule, applied everywhere.
+==================================================================== */
+:root{
+  --forest-950:#081c16;          /* footer, deepest band            */
+  --forest-900:#0d231c;          /* hero + dark sections            */
+  --forest-800:#16352a;          /* raised surfaces on dark         */
+  --forest-700:#1f4636;          /* borders / hover on dark         */
+  --paper:#ffffff;               /* primary surface: pure white     */
+  --tint:#eff4f0;                /* alternate surface, green-tinted */
+  --ink:#14241e;                 /* body text on light              */
+  --muted:#46594f;               /* secondary text on light, 7:1    */
+  --ink-on-dark:#f4f7f4;         /* headings on dark                */
+  --muted-on-dark:#b9c6be;       /* body on dark, 8:1 on forest-900 */
+  --honey:#d9a64e;               /* accent: CTAs, stars on dark     */
+  --honey-bright:#e4b667;        /* hover state of honey            */
+  --honey-deep:#8a5f1d;          /* honey for small text on white   */
+  --line:#dde5de;                /* hairlines on light              */
+  --line-dark:rgba(244,247,244,.14); /* hairlines on dark           */
+  --error:#b3261e;               /* form errors, 5.9:1 on white     */
+
+  /* Motion: strong custom curves, never default ease-in.
+     UI transitions stay under 300ms so the page feels quick. */
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+  --ease-in-out:cubic-bezier(0.77,0,0.175,1);
+  --t-press:160ms;
+  --t-ui:220ms;
+  --t-reveal:600ms;
+
+  --radius-card:16px;
+  --radius-input:12px;
+  --container:1180px;
+  --header-h:68px;
+}
+
+/* ============================ RESET ============================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px)}
+body{
+  font-family:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:1.0625rem;line-height:1.6;
+  color:var(--ink);background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul,ol{list-style:none}
+h1,h2,h3{font-family:"Bricolage Grotesque","Hanken Grotesk",sans-serif;text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:var(--honey);color:var(--forest-950)}
+
+/* Visible focus for keyboard users, two-layer ring works on any bg */
+:focus-visible{
+  outline:3px solid var(--honey);
+  outline-offset:2px;
+  border-radius:6px;
+}
+
+.skip-link{
+  position:absolute;left:16px;top:-60px;z-index:200;
+  background:var(--forest-900);color:#fff;padding:.7em 1.2em;
+  border-radius:999px;transition:top var(--t-ui) var(--ease-out);
+}
+.skip-link:focus{top:12px}
+
+.container{max-width:var(--container);margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+
+/* Generous section rhythm (visual density: airy, premium) */
+.section{padding-block:clamp(4.5rem,9vw,7.5rem)}
+.section--dark{background:var(--forest-900);color:var(--muted-on-dark)}
+.section--dark h2,.section--dark h3{color:var(--ink-on-dark)}
+.section--tint{background:var(--tint)}
+
+.section-head{max-width:46rem;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.section-head h2{
+  font-size:clamp(1.9rem,3.6vw,2.9rem);
+  font-weight:700;letter-spacing:-0.02em;line-height:1.12;
+  margin-bottom:.6em;
+}
+.section-head p{color:var(--muted);font-size:1.125rem;max-width:60ch}
+.section--dark .section-head p{color:var(--muted-on-dark)}
+
+/* ============================ ICONS ============================ */
+/* One icon family across the page: Lucide (ISC licence), 24px grid,
+   stroke 2, round caps. Inlined so the file stays dependency-free. */
+.icon{width:1.25em;height:1.25em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.icon--fill{fill:currentColor;stroke:none}
+
+/* =========================== BUTTONS =========================== */
+/* Every pressable scales to .97 on press: the UI confirms it heard
+   you. Hover lift is gated to real pointers only. */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55em;
+  padding:.9em 1.7em;border-radius:999px;
+  font-weight:600;font-size:1rem;line-height:1;text-decoration:none;
+  transition:transform var(--t-press) var(--ease-out),
+             background-color var(--t-ui) var(--ease-out),
+             border-color var(--t-ui) var(--ease-out),
+             box-shadow var(--t-ui) var(--ease-out);
+  white-space:nowrap;
+}
+.btn:active{transform:scale(0.97)}
+.btn--honey{
+  background:var(--honey);color:var(--forest-950);
+  box-shadow:0 1px 0 rgba(8,28,22,.18), inset 0 0 0 1px rgba(8,28,22,.08);
+}
+.btn--ghost{ /* on dark surfaces */
+  color:var(--ink-on-dark);
+  box-shadow:inset 0 0 0 1.5px rgba(244,247,244,.45);
+}
+.btn--forest{ /* on light surfaces */
+  background:var(--forest-900);color:var(--ink-on-dark);
+}
+.btn .icon{width:1.1em;height:1.1em}
+.btn--honey .icon-arrow{transition:transform var(--t-ui) var(--ease-out)}
+@media (hover:hover) and (pointer:fine){
+  .btn--honey:hover{background:var(--honey-bright);transform:translateY(-1px)}
+  .btn--honey:hover .icon-arrow{transform:translateX(3px)}
+  .btn--ghost:hover{box-shadow:inset 0 0 0 1.5px rgba(244,247,244,.9)}
+  .btn--forest:hover{background:var(--forest-800);transform:translateY(-1px)}
+  .btn:active{transform:scale(0.97)}
+}
+
+/* =========================== HEADER =========================== */
+.site-header{
+  position:fixed;inset-inline:0;top:0;z-index:100;
+  height:var(--header-h);
+  display:flex;align-items:center;
+  color:var(--ink-on-dark);
+  transition:background-color var(--t-ui) var(--ease-out),box-shadow var(--t-ui) var(--ease-out);
+}
+.site-header.is-scrolled{
+  background:rgba(13,35,28,.86);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 var(--line-dark);
+}
+.header-row{display:flex;align-items:center;gap:1.5rem;width:100%}
+.brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:-0.01em}
+.brand-mark{
+  width:34px;height:34px;border-radius:9px;flex:none;
+  background:var(--honey);color:var(--forest-950);
+  display:grid;place-items:center;
+  font-size:.8rem;font-weight:700;letter-spacing:0;
+}
+.site-nav{display:flex;gap:1.7rem;margin-inline:auto}
+.site-nav a{
+  text-decoration:none;font-weight:500;font-size:.95rem;color:var(--muted-on-dark);
+  transition:color var(--t-ui) var(--ease-out);
+}
+@media (hover:hover) and (pointer:fine){.site-nav a:hover{color:var(--ink-on-dark)}}
+.header-cta{display:flex;align-items:center;gap:1.1rem;margin-left:auto}
+.header-phone{
+  display:inline-flex;align-items:center;gap:.5em;text-decoration:none;
+  font-weight:600;font-size:.95rem;font-variant-numeric:tabular-nums;
+}
+.header-cta .btn{padding:.7em 1.3em;font-size:.95rem}
+@media (max-width:960px){
+  .site-nav{display:none}
+  .header-cta{margin-left:auto}
+  .header-phone span{display:none} /* icon-only call link on small screens */
+  .header-phone{padding:.6em}
+}
+@media (max-width:560px){
+  .header-cta .btn{display:none} /* sticky bottom bar takes over the quote CTA */
+}
+
+/* ============================ HERO ============================ */
+.hero{
+  background:var(--forest-900);color:var(--muted-on-dark);
+  padding-top:calc(var(--header-h) + clamp(3rem,7vw,5.5rem));
+  padding-bottom:clamp(5rem,9vw,7rem); /* room for the overlapping trust strip */
+  position:relative;overflow:hidden;
+}
+/* one quiet glow anchors the composition; not a mesh-gradient wash */
+.hero::before{
+  content:"";position:absolute;right:-12%;top:-25%;width:55%;aspect-ratio:1;
+  background:radial-gradient(circle,rgba(217,166,78,.10),transparent 65%);
+  pointer-events:none;
+}
+.hero-grid{
+  display:grid;grid-template-columns:minmax(0,11fr) minmax(0,9fr);
+  gap:clamp(2.5rem,5vw,4.5rem);align-items:center;position:relative;
+}
+.hero h1{
+  font-size:clamp(2.7rem,5.6vw,4.4rem);
+  font-weight:700;line-height:1.04;letter-spacing:-0.025em;
+  color:var(--ink-on-dark);
+  margin-bottom:.45em;
+}
+.hero h1 em{font-style:normal;color:var(--honey)}
+.hero-sub{font-size:clamp(1.05rem,1.5vw,1.2rem);max-width:34rem;margin-bottom:2rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center}
+.hero-media{position:relative}
+.hero-media img{
+  width:100%;aspect-ratio:4/4.4;object-fit:cover;
+  border-radius:var(--radius-card);
+  box-shadow:0 30px 60px -30px rgba(4,14,11,.8);
+}
+/* honey corner rule gives the photo a built, framed feel */
+.hero-media::after{
+  content:"";position:absolute;right:-14px;bottom:-14px;width:38%;height:38%;
+  border-right:3px solid var(--honey);border-bottom:3px solid var(--honey);
+  border-radius:0 0 var(--radius-card) 0;pointer-events:none;
+}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-media img{aspect-ratio:16/10}
+  .hero-media::after{right:-8px;bottom:-8px}
+}
+
+/* Hero entrance: one orchestrated load-in (rise + fade, image clips
+   open). Runs only when JS adds .js, so content is never gated. */
+@media (prefers-reduced-motion:no-preference){
+  html.js .hero [data-rise]{opacity:0;transform:translateY(22px);
+    animation:rise var(--t-reveal) var(--ease-out) forwards}
+  html.js .hero [data-rise="2"]{animation-delay:90ms}
+  html.js .hero [data-rise="3"]{animation-delay:180ms}
+  html.js .hero .hero-media{clip-path:inset(0 100% 0 0 round var(--radius-card));
+    animation:unclip 800ms var(--ease-in-out) 120ms forwards}
+}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes unclip{to{clip-path:inset(0 0 0 0 round var(--radius-card))}}
+
+/* ======================== TRUST STRIP ========================= */
+/* White card overlaps the hero base: the page literally builds on
+   its credentials. Numbers in tabular figures so nothing shifts. */
+.trust-strip{position:relative;z-index:2;margin-top:calc(clamp(2.5rem,5vw,3.5rem) * -1)}
+.trust-card{
+  background:var(--paper);border-radius:var(--radius-card);
+  border:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.trust-item{padding:1.5rem 1.75rem;display:flex;flex-direction:column;gap:.2rem}
+.trust-item + .trust-item{border-left:1px solid var(--line)}
+.trust-item strong{
+  font-family:"Bricolage Grotesque",sans-serif;font-size:1.35rem;font-weight:700;
+  letter-spacing:-0.01em;color:var(--ink);font-variant-numeric:tabular-nums;
+  display:flex;align-items:center;gap:.4rem;
+}
+.trust-item span{font-size:.9rem;color:var(--muted)}
+.trust-item .icon{color:var(--honey-deep);width:1.15em;height:1.15em}
+.stars{display:inline-flex;gap:2px;color:var(--honey-deep)}
+.stars .icon{width:1.05em;height:1.05em}
+@media (max-width:860px){
+  .trust-card{grid-template-columns:1fr 1fr}
+  .trust-item{padding:1.1rem 1.25rem}
+  .trust-item:nth-child(3){border-left:none}
+  .trust-item:nth-child(n+3){border-top:1px solid var(--line)}
+}
+
+/* ========================== SERVICES ========================== */
+/* Four services, four bento cells, deliberately unequal: the two
+   rooms that sell houses get the imagery and the space. */
+.services-grid{
+  display:grid;gap:1.25rem;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:minmax(150px,auto);
+}
+.svc{
+  border-radius:var(--radius-card);padding:1.75rem;position:relative;
+  display:flex;flex-direction:column;gap:.6rem;overflow:hidden;
+  border:1px solid var(--line);background:var(--paper);
+  transition:transform var(--t-ui) var(--ease-out),box-shadow var(--t-ui) var(--ease-out);
+}
+@media (hover:hover) and (pointer:fine){
+  .svc:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(13,35,28,.35)}
+}
+.svc h3{font-size:1.3rem;font-weight:700;letter-spacing:-0.015em;color:var(--ink)}
+.svc p{color:var(--muted);font-size:.98rem;max-width:46ch}
+.svc-icon{
+  width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+  background:var(--tint);color:var(--forest-800);margin-bottom:.4rem;
+}
+.svc-icon .icon{width:22px;height:22px}
+.svc--kitchen{grid-column:1/6;grid-row:1/3;justify-content:flex-end;min-height:420px;
+  color:var(--muted-on-dark);border:none}
+.svc--kitchen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.svc--kitchen::after{ /* scrim keeps the copy readable over the photo */
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(8,28,22,.92) 12%,rgba(8,28,22,.35) 55%,rgba(8,28,22,.05));
+}
+.svc--kitchen h3,.svc--kitchen p,.svc--kitchen .svc-icon{position:relative;z-index:1}
+.svc--kitchen h3{color:#fff}
+.svc--kitchen p{color:var(--muted-on-dark)}
+.svc--kitchen .svc-icon{background:rgba(244,247,244,.14);color:var(--honey)}
+.svc--bath{grid-column:6/13;grid-row:1/2}
+.svc--home{grid-column:6/10;grid-row:2/3;background:var(--forest-900);border:none}
+.svc--home h3{color:var(--ink-on-dark)}
+.svc--home p{color:var(--muted-on-dark)}
+.svc--home .svc-icon{background:var(--forest-800);color:var(--honey)}
+.svc--extras{grid-column:10/13;grid-row:2/3;background:var(--tint);border:none}
+@media (max-width:860px){
+  .svc--kitchen,.svc--bath,.svc--home,.svc--extras{grid-column:1/-1;grid-row:auto}
+  .svc--kitchen{min-height:340px}
+}
+
+/* ======================= BEFORE / AFTER ======================= */
+.ba-wrap{display:grid;gap:2.5rem}
+.ba-slider{
+  position:relative;border-radius:var(--radius-card);overflow:hidden;
+  aspect-ratio:16/8.5;max-height:560px;
+  touch-action:pan-y; /* vertical page scroll still works on touch */
+}
+.ba-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba-before{clip-path:inset(0 50% 0 0)} /* JS drives the right inset */
+.ba-handle{
+  position:absolute;top:0;bottom:0;left:50%;width:2px;
+  background:#fff;pointer-events:none;transform:translateX(-50%);
+}
+.ba-handle::after{
+  content:"";position:absolute;top:50%;left:50%;
+  width:46px;height:46px;border-radius:50%;
+  transform:translate(-50%,-50%);
+  background:var(--honey);
+  box-shadow:0 4px 14px rgba(4,14,11,.45);
+  background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23081c16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/></svg>');
+  background-size:24px;background-position:center;background-repeat:no-repeat;
+}
+/* the real control: a native range input covering the slider, so
+   drag, touch and arrow keys all work with zero custom gesture code */
+.ba-range{
+  position:absolute;inset:0;width:100%;height:100%;
+  opacity:0;cursor:ew-resize;margin:0;
+  -webkit-appearance:none;appearance:none;
+}
+.ba-caption{display:flex;justify-content:space-between;gap:1rem;margin-top:.8rem;
+  font-size:.9rem;color:var(--muted)}
+.ba-caption b{color:var(--ink);font-weight:600}
+
+.ba-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem 1.25rem}
+.ba-pair{display:grid;gap:.6rem}
+.ba-pair-imgs{display:grid;grid-template-columns:1fr 1fr;gap:6px;border-radius:var(--radius-card);overflow:hidden}
+.ba-pair-imgs img{aspect-ratio:4/3.1;object-fit:cover;width:100%;height:100%}
+.ba-pair figcaption{font-size:.92rem;color:var(--muted)}
+.ba-pair figcaption b{color:var(--ink);font-weight:600}
+.ba-pair-labels{display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:.78rem;
+  color:var(--muted);text-align:center;margin-top:-2px}
+@media (max-width:760px){.ba-grid{grid-template-columns:1fr}}
+
+/* ========================= GUARANTEES ========================= */
+.promise-grid{
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+  gap:clamp(2.5rem,6vw,5rem);align-items:start;
+}
+.promise-intro h2{
+  font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:700;
+  letter-spacing:-0.02em;line-height:1.12;margin-bottom:.6em;
+}
+.promise-intro p{font-size:1.1rem;max-width:44ch}
+.promise-intro .btn{margin-top:1.8rem}
+.promise-list{display:grid}
+.promise{
+  display:grid;grid-template-columns:auto 1fr;gap:1.1rem;
+  padding:1.4rem 0;align-items:start;
+}
+.promise + .promise{border-top:1px solid var(--line-dark)}
+.promise-ic{
+  width:44px;height:44px;border-radius:12px;flex:none;
+  background:var(--forest-800);color:var(--honey);
+  display:grid;place-items:center;
+}
+.promise-ic .icon{width:21px;height:21px}
+.promise h3{font-size:1.12rem;font-weight:700;color:var(--ink-on-dark);margin-bottom:.25rem}
+.promise p{font-size:.97rem;max-width:56ch}
+@media (max-width:860px){.promise-grid{grid-template-columns:1fr}}
+
+/* =========================== PROCESS ========================== */
+/* A real 4-step sequence, so the numbers carry information here. */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;counter-reset:step}
+.step{position:relative;padding-top:1.4rem}
+.step::before{ /* connecting hairline */
+  content:"";position:absolute;top:0;left:0;right:-2rem;height:2px;background:var(--line);
+}
+.step:last-child::before{right:0}
+.step::after{ /* honey progress notch on the line */
+  content:"";position:absolute;top:-3px;left:0;width:34px;height:8px;
+  border-radius:99px;background:var(--honey);
+}
+.step-num{
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
+  font-size:2.2rem;letter-spacing:-0.02em;color:var(--honey-deep);
+  font-variant-numeric:tabular-nums;line-height:1;margin-bottom:.5rem;
+}
+.step h3{font-size:1.15rem;font-weight:700;margin-bottom:.35rem;color:var(--ink)}
+.step p{font-size:.95rem;color:var(--muted)}
+@media (max-width:860px){
+  .steps{grid-template-columns:1fr;gap:0}
+  .step{display:grid;grid-template-columns:auto 1fr;column-gap:1.25rem;
+    padding:1.3rem 0 1.3rem;border-left:2px solid var(--line);padding-left:1.5rem}
+  .step::before,.step::after{display:none}
+  .step .step-num{grid-row:1/3;font-size:1.8rem}
+  .step h3,.step p{grid-column:2}
+}
+
+/* ======================== TESTIMONIALS ======================== */
+.reviews-head{display:flex;flex-wrap:wrap;align-items:flex-end;gap:1.25rem;justify-content:space-between}
+.gbadge{
+  display:inline-flex;align-items:center;gap:.55em;
+  border:1px solid var(--line);border-radius:999px;background:var(--paper);
+  padding:.55em 1.1em;font-size:.92rem;color:var(--muted);font-weight:500;
+}
+.gbadge b{color:var(--ink);font-variant-numeric:tabular-nums}
+.review-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;align-items:start;
+  margin-top:clamp(2rem,4vw,3rem);
+}
+.review{
+  background:var(--paper);border:1px solid var(--line);
+  border-radius:var(--radius-card);padding:1.75rem;
+  display:flex;flex-direction:column;gap:1rem;
+}
+.review--feature{ /* the middle card carries the weight */
+  background:var(--forest-900);border:none;color:var(--muted-on-dark);
+  padding:2.1rem 1.9rem;margin-top:-0.9rem;margin-bottom:-0.9rem;
+  box-shadow:0 24px 50px -28px rgba(8,28,22,.55);
+}
+.review-quote-mark{
+  font-family:"Bricolage Grotesque",sans-serif;font-size:2.6rem;line-height:.6;
+  color:var(--honey-deep);height:.55em;
+}
+.review--feature .review-quote-mark{color:var(--honey)}
+.review p{font-size:.98rem;color:var(--muted);font-style:italic}
+.review--feature p{color:var(--muted-on-dark)}
+.review footer{margin-top:auto;display:grid;gap:.15rem}
+.review footer b{color:var(--ink);font-style:normal;font-weight:600}
+.review--feature footer b{color:var(--ink-on-dark)}
+.review footer span{font-size:.85rem;color:var(--muted)}
+.review--feature footer span{color:var(--muted-on-dark)}
+.review .stars{color:var(--honey-deep)}
+.review--feature .stars{color:var(--honey)}
+@media (max-width:860px){
+  .review-grid{grid-template-columns:1fr}
+  .review--feature{margin-block:0}
+}
+
+/* ======================== SERVICE AREAS ======================= */
+.areas-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem 2.5rem;
+  margin-top:clamp(2rem,4vw,3rem);
+}
+.area{padding-top:1.1rem;border-top:2px solid var(--line)}
+.area h3{font-size:1.02rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;
+  display:flex;align-items:center;gap:.45em}
+.area h3 .icon{width:1em;height:1em;color:var(--honey-deep)}
+.area p{font-size:.92rem;color:var(--muted)}
+.areas-note{margin-top:2.5rem;font-size:1rem;color:var(--muted)}
+.areas-note a{color:var(--ink);font-weight:600;text-decoration-color:var(--honey)}
+@media (max-width:960px){.areas-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.areas-grid{grid-template-columns:1fr;gap:1.25rem}}
+
+/* ============================= FAQ ============================ */
+.faq-grid{
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+  gap:clamp(2.5rem,6vw,5rem);align-items:start;
+}
+.faq-intro{position:sticky;top:calc(var(--header-h) + 24px)}
+.faq-intro h2{font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:700;
+  letter-spacing:-0.02em;line-height:1.12;margin-bottom:.6em}
+.faq-intro p{color:var(--muted);font-size:1.1rem;max-width:40ch;margin-bottom:1.6rem}
+.faq-call{
+  display:inline-flex;align-items:center;gap:.6em;text-decoration:none;
+  font-weight:700;font-size:1.15rem;color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+.faq-call .icon{color:var(--honey-deep)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item:first-child{border-top:1px solid var(--line)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.25rem;
+  text-align:left;padding:1.3rem 0;
+  font-weight:600;font-size:1.08rem;color:var(--ink);
+}
+.faq-q .icon{transition:transform var(--t-ui) var(--ease-out);color:var(--honey-deep)}
+.faq-q[aria-expanded="true"] .icon{transform:rotate(180deg)}
+.faq-a{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows 260ms var(--ease-out);
+}
+.faq-a>div{overflow:hidden}
+.faq-a p{padding-bottom:1.3rem;color:var(--muted);max-width:62ch}
+.faq-item.is-open .faq-a{grid-template-rows:1fr}
+@media (max-width:860px){
+  .faq-grid{grid-template-columns:1fr}
+  .faq-intro{position:static}
+}
+
+/* ====================== QUOTE FORM / CTA ====================== */
+.quote-grid{
+  display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);
+  gap:clamp(2.5rem,6vw,5rem);align-items:center;
+}
+.quote-intro h2{
+  font-size:clamp(2.1rem,4vw,3.2rem);font-weight:700;
+  letter-spacing:-0.022em;line-height:1.08;margin-bottom:.55em;
+}
+.quote-intro h2 em{font-style:normal;color:var(--honey)}
+.quote-intro>p{font-size:1.12rem;max-width:46ch;margin-bottom:2rem}
+.next-steps{display:grid;gap:1rem;margin-bottom:2.2rem}
+.next-steps li{display:flex;gap:.8rem;align-items:flex-start;font-size:1rem}
+.next-steps .icon{color:var(--honey);margin-top:.2em}
+.quote-call{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.or-divider{color:var(--muted-on-dark);font-size:.95rem}
+
+.quote-card{
+  background:var(--paper);color:var(--ink);
+  border-radius:var(--radius-card);padding:clamp(1.5rem,3vw,2.5rem);
+  box-shadow:0 30px 70px -35px rgba(2,10,8,.9);
+}
+.quote-card h3{font-size:1.3rem;font-weight:700;margin-bottom:.3rem}
+.quote-card .form-note{font-size:.92rem;color:var(--muted);margin-bottom:1.5rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-weight:600;font-size:.92rem;margin-bottom:.35rem}
+.field label .req{color:var(--honey-deep)}
+.field label .opt{color:var(--muted);font-weight:400}
+.field input,.field select,.field textarea{
+  width:100%;min-height:48px;padding:.7em .9em;
+  font:inherit;font-size:1rem;color:var(--ink);
+  border:1.5px solid var(--line);border-radius:var(--radius-input);
+  background:var(--paper);
+  transition:border-color var(--t-ui) var(--ease-out),box-shadow var(--t-ui) var(--ease-out);
+}
+.field textarea{resize:vertical;min-height:96px}
+.field select{
+  -webkit-appearance:none;appearance:none;
+  background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2346594f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
+  background-repeat:no-repeat;background-position:right .8em center;background-size:1.1em;
+  padding-right:2.6em;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--forest-800);
+  box-shadow:0 0 0 3px rgba(22,53,42,.18);
+}
+.field.has-error input,.field.has-error select{border-color:var(--error)}
+.field-error{display:none;font-size:.85rem;color:var(--error);margin-top:.35rem}
+.field.has-error .field-error{display:block}
+.quote-card .btn{width:100%;font-size:1.05rem;padding:1em}
+.micro-trust{
+  margin-top:.9rem;text-align:center;font-size:.88rem;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;gap:.45em;
+}
+.micro-trust .icon{width:1em;height:1em;color:var(--honey-deep)}
+.form-success{display:none;text-align:center;padding:2.5rem 1rem}
+.form-success .icon{width:52px;height:52px;color:var(--forest-800);margin-inline:auto;margin-bottom:1rem}
+.form-success h3{margin-bottom:.4rem}
+.form-success p{color:var(--muted);max-width:36ch;margin-inline:auto}
+.quote-form.is-done form{display:none}
+.quote-form.is-done .form-success{display:block}
+@media (max-width:960px){
+  .quote-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+}
+
+/* =========================== FOOTER =========================== */
+.site-footer{background:var(--forest-950);color:var(--muted-on-dark);padding:4rem 0 2.5rem}
+.footer-grid{
+  display:grid;grid-template-columns:minmax(0,5fr) repeat(3,minmax(0,3fr));
+  gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid var(--line-dark);
+}
+.footer-brand p{margin-top:1rem;font-size:.95rem;max-width:34ch}
+.site-footer h3{font-size:.95rem;font-weight:700;color:var(--ink-on-dark);margin-bottom:1rem}
+.footer-list{display:grid;gap:.6rem;font-size:.95rem}
+.footer-list a{text-decoration:none;transition:color var(--t-ui) var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.footer-list a:hover{color:var(--ink-on-dark)}}
+.footer-list .tel{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink-on-dark)}
+.socials{display:flex;gap:.8rem;margin-top:1.2rem}
+.socials a{
+  width:40px;height:40px;border-radius:50%;display:grid;place-items:center;
+  box-shadow:inset 0 0 0 1.5px var(--line-dark);
+  transition:box-shadow var(--t-ui) var(--ease-out),color var(--t-ui) var(--ease-out);
+}
+@media (hover:hover) and (pointer:fine){
+  .socials a:hover{box-shadow:inset 0 0 0 1.5px var(--honey);color:var(--honey)}
+}
+.footer-legal{
+  display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
+  padding-top:1.8rem;font-size:.85rem;color:rgba(185,198,190,.75);
+}
+@media (max-width:860px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.footer-grid{grid-template-columns:1fr}}
+
+/* ==================== MOBILE STICKY CTA BAR =================== */
+.mobile-bar{
+  position:fixed;inset-inline:0;bottom:0;z-index:90;display:none;
+  background:rgba(8,28,22,.92);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-top:1px solid var(--line-dark);
+  padding:.7rem max(1rem,env(safe-area-inset-left)) calc(.7rem + env(safe-area-inset-bottom));
+  gap:.7rem;
+}
+.mobile-bar .btn{flex:1;padding:.85em .5em;font-size:.98rem}
+@media (max-width:860px){
+  .mobile-bar{display:flex}
+  body{padding-bottom:76px} /* content never hides behind the bar */
+}
+@media (max-width:380px){
+  .mobile-bar .btn{font-size:.9rem;padding-inline:.4em} /* both labels fit a 320px screen */
+}
+@media print{.mobile-bar,.site-header{display:none}}
+
+/* ====================== SCROLL REVEALS ======================== */
+/* Sections fade-rise as they enter. Initial hidden state exists only
+   when JS runs (html.js), so content is never trapped invisible. */
+@media (prefers-reduced-motion:no-preference){
+  html.js .reveal{opacity:0;transform:translateY(18px);
+    transition:opacity var(--t-reveal) var(--ease-out),transform var(--t-reveal) var(--ease-out)}
+  html.js .reveal.is-in{opacity:1;transform:none}
+  html.js .reveal[data-delay="1"]{transition-delay:60ms}
+  html.js .reveal[data-delay="2"]{transition-delay:120ms}
+  html.js .reveal[data-delay="3"]{transition-delay:180ms}
+}
+/* Reduced motion: no movement, instant or opacity-only changes. */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+
+/* ====================== IMAGE SWAP SLOTS ====================== */
+/* If a placeholder photo fails to load, JS replaces it with this
+   labelled slot so the layout still looks intentional. */
+.img-slot{
+  width:100%;height:100%;min-height:180px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
+  background:var(--tint);border:1.5px dashed #c2d0c6;border-radius:var(--radius-card);
+  color:var(--muted);font-size:.88rem;text-align:center;padding:1rem;
+}
+.img-slot .icon{width:26px;height:26px;opacity:.7}
+/* slots inherit the footprint of the photo they replace */
+.svc--kitchen .img-slot,.ba-slider .img-slot{position:absolute;inset:0;border-radius:0}
+.ba-slider .img-slot.ba-before{width:50%}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- =================================================================
+     HEADER (sticky). Primary CTA + click-to-call stay visible on
+     desktop; on mobile the bottom bar takes over.
+================================================================== -->
+<header class="site-header" id="header">
+  <div class="container header-row">
+    <a class="brand" href="#top" aria-label="Smart Makeover, back to top">
+      <span class="brand-mark" aria-hidden="true">SM</span>
+      Smart&nbsp;Makeover
+    </a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#transformations">Transformations</a>
+      <a href="#process">Process</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-cta">
+      <a class="header-phone" href="tel:0401939291" aria-label="Call Smart Makeover on 0401 939 291">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>0401 939 291</span>
+      </a>
+      <a class="btn btn--honey" href="#quote">Get a Free Quote</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- =================================================================
+     HERO. Outcome headline, one promise-dense subline, two CTAs.
+     SWAP IMAGE: replace src with your best finished-project photo
+     (bright, wide, finished kitchen or living space works best).
+================================================================== -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <h1 data-rise="1">Love where you live, <em>again.</em></h1>
+      <p class="hero-sub" data-rise="2">Design-and-build kitchen, bathroom and full-home renovations across Sydney. Fixed quotes, licensed trades, schedules we actually keep.</p>
+      <div class="hero-ctas" data-rise="3">
+        <a class="btn btn--honey" href="#quote">
+          Get a Free Quote
+          <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="tel:0401939291">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call 0401 939 291
+        </a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <!-- SWAP IMAGE: hero photo -->
+      <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=80"
+           alt="A finished Smart Makeover kitchen: white shaker cabinetry, timber benchtop and morning light"
+           width="1200" height="1320" fetchpriority="high"
+           data-slot="Hero photo: your best finished kitchen or living space">
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     TRUST STRIP, overlapping the hero. Replace every [X] with real
+     figures; nothing here is invented.
+================================================================== -->
+<div class="trust-strip" aria-label="Why homeowners trust Smart Makeover">
+  <div class="container">
+    <div class="trust-card reveal">
+      <div class="trust-item">
+        <strong>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          Licensed &amp; insured
+        </strong>
+        <span>NSW builder licence [LICENCE&nbsp;NO]</span>
+      </div>
+      <div class="trust-item">
+        <strong>[X] years</strong>
+        <span>renovating Sydney homes</span>
+      </div>
+      <div class="trust-item">
+        <strong>[X]+ homes</strong>
+        <span>transformed across Sydney</span>
+      </div>
+      <div class="trust-item">
+        <strong>
+          <span class="stars" aria-hidden="true">
+            <svg class="icon icon--fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          </span>
+          5-star rated
+        </strong>
+        <span>by [X] local homeowners</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =================================================================
+     SERVICES. Four offerings, one asymmetric bento.
+     SWAP IMAGE: the kitchen tile photo.
+================================================================== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Four ways to fall back in love with your home</h2>
+      <p>One licensed builder for the whole job: design, trades, certification and the clean-up. You deal with one team and one number from the first walk-through to handover.</p>
+    </div>
+    <div class="services-grid">
+      <article class="svc svc--kitchen reveal">
+        <!-- SWAP IMAGE: kitchen service tile -->
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=80"
+             alt="Dark stone island bench in a renovated Sydney kitchen" loading="lazy"
+             width="900" height="900" data-slot="Kitchen photo for the services tile">
+        <span class="svc-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></svg>
+        </span>
+        <h3>Kitchens</h3>
+        <p>The room that does the heavy lifting. Layouts planned around how you actually cook, storage that swallows the clutter, benchtops chosen to last.</p>
+      </article>
+      <article class="svc svc--bath reveal" data-delay="1">
+        <span class="svc-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+        </span>
+        <h3>Bathrooms</h3>
+        <p>Start your mornings somewhere better. Waterproofing done right the first time, fittings that feel solid, and tiling so straight you'll never think about it.</p>
+      </article>
+      <article class="svc svc--home reveal" data-delay="2">
+        <span class="svc-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/></svg>
+        </span>
+        <h3>Full home makeovers</h3>
+        <p>One builder, one schedule, one finish date. We coordinate every trade so a whole-home renovation doesn't take over your whole life.</p>
+      </article>
+      <article class="svc svc--extras reveal" data-delay="3">
+        <span class="svc-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+        </span>
+        <h3>Laundries &amp; extras</h3>
+        <p>The smaller jobs that finish the picture: laundries, flooring, painting and alfresco areas, built to the same standard as the showpiece rooms.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     BEFORE & AFTER. One interactive comparison slider plus a grid of
+     captioned pairs. SWAP IMAGE comments mark every photo. For the
+     slider, use a before/after pair shot from the same angle.
+================================================================== -->
+<section class="section section--tint" id="transformations">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>See the difference a Smart Makeover makes</h2>
+      <p>Drag the handle to compare. These are placeholder photos: swap in your own before-and-after pairs and let the work sell itself.</p>
+    </div>
+    <div class="ba-wrap">
+      <figure class="reveal">
+        <div class="ba-slider" id="baSlider">
+          <!-- SWAP IMAGE: AFTER photo (bottom layer) -->
+          <img class="ba-after" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1600&q=80"
+               alt="After: the renovated kitchen, bright and open" loading="lazy"
+               width="1600" height="850" data-slot="AFTER photo, same angle as the before shot">
+          <!-- SWAP IMAGE: BEFORE photo (top layer, clipped) -->
+          <img class="ba-before" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=80"
+               alt="Before: the original kitchen prior to renovation" loading="lazy"
+               width="1600" height="850" data-slot="BEFORE photo, same angle as the after shot">
+          <div class="ba-handle" aria-hidden="true"></div>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="1"
+                 aria-label="Compare before and after photos. Left shows before, right shows after.">
+        </div>
+        <figcaption class="ba-caption">
+          <span><b>Before</b> the original space</span>
+          <span><b>After</b> [SUBURB] kitchen, completed [YEAR]</span>
+        </figcaption>
+      </figure>
+
+      <div class="ba-grid">
+        <figure class="ba-pair reveal">
+          <div class="ba-pair-imgs">
+            <!-- SWAP IMAGE: bathroom before -->
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=80"
+                 alt="Before: dated bathroom prior to renovation" loading="lazy"
+                 width="700" height="540" data-slot="Bathroom BEFORE photo">
+            <!-- SWAP IMAGE: bathroom after -->
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=700&q=80"
+                 alt="After: renovated bathroom with full-height tiling and brushed tapware" loading="lazy"
+                 width="700" height="540" data-slot="Bathroom AFTER photo">
+          </div>
+          <div class="ba-pair-labels" aria-hidden="true"><span>Before</span><span>After</span></div>
+          <figcaption><b>[SUBURB] ensuite</b> [REVIEW QUOTE or one-line project note]</figcaption>
+        </figure>
+        <figure class="ba-pair reveal" data-delay="1">
+          <div class="ba-pair-imgs">
+            <!-- SWAP IMAGE: living area before -->
+            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=700&q=80"
+                 alt="Before: living area prior to the full home makeover" loading="lazy"
+                 width="700" height="540" data-slot="Living area BEFORE photo">
+            <!-- SWAP IMAGE: living area after -->
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=700&q=80"
+                 alt="After: open-plan living area with new flooring and joinery" loading="lazy"
+                 width="700" height="540" data-slot="Living area AFTER photo">
+          </div>
+          <div class="ba-pair-labels" aria-hidden="true"><span>Before</span><span>After</span></div>
+          <figcaption><b>[SUBURB] full home makeover</b> [one-line project note]</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     WHY CHOOSE US. The four promises that close high-ticket jobs.
+================================================================== -->
+<section class="section section--dark" id="why-us">
+  <div class="container promise-grid">
+    <div class="promise-intro reveal">
+      <h2>Renovate without holding your breath</h2>
+      <p>Most renovation horror stories start with a vague quote and a builder who stops answering the phone. Ours start with paperwork and end with a handover.</p>
+      <a class="btn btn--honey" href="#quote">Get a Free Quote</a>
+    </div>
+    <ul class="promise-list">
+      <li class="promise reveal">
+        <span class="promise-ic" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
+        <div>
+          <h3>Licensed and insured, in writing</h3>
+          <p>NSW builder licence [LICENCE NO], public liability insurance and home building compensation cover on every eligible job. Ask to see the certificates; we like being asked.</p>
+        </div>
+      </li>
+      <li class="promise reveal" data-delay="1">
+        <span class="promise-ic" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+        </span>
+        <div>
+          <h3>Fixed-price quotes</h3>
+          <p>The number we quote is the number you pay. Variations only happen when you change the scope, and they're priced and signed off before any work continues.</p>
+        </div>
+      </li>
+      <li class="promise reveal" data-delay="2">
+        <span class="promise-ic" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+        </span>
+        <div>
+          <h3>On time, on budget</h3>
+          <p>You get a written schedule before we start and a progress update every week. If anything moves, you hear it from us first, with the reason and the new date.</p>
+        </div>
+      </li>
+      <li class="promise reveal" data-delay="3">
+        <span class="promise-ic" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </span>
+        <div>
+          <h3>Workmanship guarantee</h3>
+          <p>A [X]-year warranty on our workmanship, on top of your statutory protections under NSW building law. If something's not right, we come back and make it right.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- =================================================================
+     PROCESS. A real four-step sequence from consult to handover.
+================================================================== -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>From first walk-through to handover</h2>
+      <p>Four steps, no mysteries. You'll know what happens next at every stage, and you'll have our number when you want to check.</p>
+    </div>
+    <ol class="steps">
+      <li class="step reveal">
+        <div class="step-num" aria-hidden="true">1</div>
+        <h3>Consult</h3>
+        <p>We walk the space with you, talk through ideas and budget honestly, and measure everything that matters.</p>
+      </li>
+      <li class="step reveal" data-delay="1">
+        <div class="step-num" aria-hidden="true">2</div>
+        <h3>Design &amp; quote</h3>
+        <p>You get a detailed fixed-price quote and a realistic schedule. No vague allowances that blow out later.</p>
+      </li>
+      <li class="step reveal" data-delay="2">
+        <div class="step-num" aria-hidden="true">3</div>
+        <h3>Build</h3>
+        <p>Licensed trades, a tidy site and a weekly update. We protect the rest of your home while we work.</p>
+      </li>
+      <li class="step reveal" data-delay="3">
+        <div class="step-num" aria-hidden="true">4</div>
+        <h3>Handover</h3>
+        <p>A final walk-through together, every detail checked off, and your warranty paperwork in hand.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- =================================================================
+     TESTIMONIALS. Drop real Google reviews into the [REVIEW QUOTE]
+     slots; never publish invented ones. Keep quotes to 2-3 lines.
+================================================================== -->
+<section class="section section--tint" id="reviews">
+  <div class="container">
+    <div class="reviews-head reveal">
+      <div class="section-head" style="margin-bottom:0">
+        <h2>What Sydney homeowners say</h2>
+      </div>
+      <span class="gbadge">Rated <b>[4.X]</b>
+        <span class="stars" aria-hidden="true"><svg class="icon icon--fill" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg></span>
+        from [X] Google reviews</span>
+    </div>
+    <div class="review-grid">
+      <article class="review reveal">
+        <div class="review-quote-mark" aria-hidden="true">&#8220;</div>
+        <span class="stars" aria-label="5 out of 5 stars">
+          <svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        </span>
+        <p>[REVIEW QUOTE: paste a real Google review about a kitchen renovation here, two to three lines.]</p>
+        <footer>
+          <b>[NAME]</b>
+          <span>[SUBURB], kitchen renovation</span>
+        </footer>
+      </article>
+      <article class="review review--feature reveal" data-delay="1">
+        <div class="review-quote-mark" aria-hidden="true">&#8220;</div>
+        <span class="stars" aria-label="5 out of 5 stars">
+          <svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        </span>
+        <p>[REVIEW QUOTE: put your strongest review here, the one that mentions trust, schedule or budget. This card is the one visitors read.]</p>
+        <footer>
+          <b>[NAME]</b>
+          <span>[SUBURB], full home makeover</span>
+        </footer>
+      </article>
+      <article class="review reveal" data-delay="2">
+        <div class="review-quote-mark" aria-hidden="true">&#8220;</div>
+        <span class="stars" aria-label="5 out of 5 stars">
+          <svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><svg class="icon icon--fill" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        </span>
+        <p>[REVIEW QUOTE: paste a real bathroom or laundry review here, two to three lines.]</p>
+        <footer>
+          <b>[NAME]</b>
+          <span>[SUBURB], bathroom renovation</span>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     SERVICE AREAS. Region + suburb names for local SEO.
+================================================================== -->
+<section class="section" id="areas">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Sydney-wide, suburb-smart</h2>
+      <p>We renovate across greater Sydney. Local trades, local suppliers, and quotes that account for your street, not a city average.</p>
+    </div>
+    <div class="areas-grid">
+      <div class="area reveal">
+        <h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Inner West</h3>
+        <p>Newtown, Marrickville, Leichhardt, Balmain, Ashfield</p>
+      </div>
+      <div class="area reveal" data-delay="1">
+        <h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Eastern Suburbs</h3>
+        <p>Bondi, Randwick, Coogee, Maroubra, Double Bay</p>
+      </div>
+      <div class="area reveal" data-delay="2">
+        <h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>North Shore</h3>
+        <p>Chatswood, Mosman, Lane Cove, St Leonards</p>
+      </div>
+      <div class="area reveal" data-delay="3">
+        <h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Northern Beaches</h3>
+        <p>Manly, Dee Why, Mona Vale, Narrabeen</p>
+      </div>
+      <div class="area reveal">
+        <h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Hills District</h3>
+        <p>Castle Hill, Baulkham Hills, Kellyville, Rouse Hill</p>
+      </div>
+      <div class="area reveal" data-delay="1">
+        <h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Sutherland Shire</h3>
+        <p>Cronulla, Miranda, Sutherland, Caringbah</p>
+      </div>
+      <div class="area reveal" data-delay="2">
+        <h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Greater West</h3>
+        <p>Parramatta, Blacktown, Penrith, Liverpool</p>
+      </div>
+      <div class="area reveal" data-delay="3">
+        <h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>St George</h3>
+        <p>Hurstville, Kogarah, Brighton-Le-Sands, Sans Souci</p>
+      </div>
+    </div>
+    <p class="areas-note reveal">Don't see your suburb? If you're in greater Sydney, you're probably in range. <a href="tel:0401939291">Call 0401 939 291</a> and ask.</p>
+  </div>
+</section>
+
+<!-- =================================================================
+     FAQ. The six questions every renovator asks before calling.
+================================================================== -->
+<section class="section section--tint" id="faq">
+  <div class="container faq-grid">
+    <div class="faq-intro reveal">
+      <h2>Questions every smart renovator asks</h2>
+      <p>If yours isn't here, the fastest answer is a phone call. No scripts, no pressure, just a builder on the other end.</p>
+      <a class="faq-call" href="tel:0401939291">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0401 939 291
+      </a>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How much does a renovation cost?
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div><p>It depends on the size of the space, the materials you choose and what's hiding behind the walls. That's exactly why we quote fixed prices after a free on-site consult instead of guessing over the phone. You'll know your real number before any work starts, and it won't quietly grow.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How long will my renovation take?
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div><p>A single bathroom or kitchen typically runs a few weeks; a full home makeover runs months. Whatever the scope, you get a written schedule before we start and a weekly update during the build, so the finish date is something you watch, not something you wonder about.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Can we live at home during the build?
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div><p>For single-room renovations, almost always. We seal off the work zone, protect floors and furniture, and leave the site safe and tidy at the end of every day. For full-home jobs we'll talk honestly about which stages are liveable and which aren't, before you commit.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do you handle council approvals?
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div><p>Many cosmetic renovations don't need approval at all. Where consent or certification is required, we tell you up front, prepare what's needed and coordinate with the certifier, so nothing gets built that can't be signed off.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What warranty do we get?
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div><p>You're covered twice: our own [X]-year workmanship warranty, plus the statutory warranties that NSW building law attaches to residential work. Both are written into your contract, not promised over a handshake.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How do payments work?
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div><p>Staged payments tied to completed milestones, with the deposit capped as NSW law requires. You pay for work you can walk through and see, never for promises.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     FINAL CTA + QUOTE FORM.
+     CONNECT FORM: the submit handler below is a placeholder. To go
+     live with Formspree (free tier works):
+       1. Create a form at https://formspree.io and copy its endpoint.
+       2. In the JS near the bottom, replace the SIMULATED SUBMIT block
+          with the fetch() call shown in the comment there.
+================================================================== -->
+<section class="section section--dark" id="quote">
+  <div class="container quote-grid">
+    <div class="quote-intro reveal">
+      <h2>Tell us about your project. <em>We'll bring the plan.</em></h2>
+      <p>Send the form or pick up the phone. Either way you'll be talking to the builder, not a call centre.</p>
+      <ul class="next-steps">
+        <li>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          We call you back within 24 hours
+        </li>
+        <li>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Free on-site consult and measure-up
+        </li>
+        <li>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Fixed-price quote in writing
+        </li>
+      </ul>
+      <div class="quote-call">
+        <a class="btn btn--ghost" href="tel:0401939291">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call 0401 939 291
+        </a>
+        <span class="or-divider">or use the form, it goes straight to us</span>
+      </div>
+    </div>
+
+    <div class="quote-card quote-form reveal" data-delay="1">
+      <form id="quoteForm" novalidate>
+        <h3>Get your free quote</h3>
+        <p class="form-note">Takes about a minute. No obligation.</p>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+            <p class="field-error" id="err-name">Please tell us your name.</p>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+            <p class="field-error" id="err-phone">Enter a phone number so we can call you back.</p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="f-email">Email <span class="opt">(optional)</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email">
+            <p class="field-error" id="err-email">That email doesn't look right.</p>
+          </div>
+          <div class="field">
+            <label for="f-suburb">Suburb <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-suburb" name="suburb" type="text" autocomplete="address-level2" required>
+            <p class="field-error" id="err-suburb">Which suburb is the project in?</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-type">Project type <span class="req" aria-hidden="true">*</span></label>
+          <select id="f-type" name="project_type" required>
+            <option value="" selected disabled>Choose one</option>
+            <option>Kitchen renovation</option>
+            <option>Bathroom renovation</option>
+            <option>Laundry or another room</option>
+            <option>Full home makeover</option>
+            <option>Something else</option>
+          </select>
+          <p class="field-error" id="err-type">Pick the closest match.</p>
+        </div>
+
+        <div class="field">
+          <label for="f-msg">Tell us about the project <span class="opt">(optional)</span></label>
+          <textarea id="f-msg" name="message" rows="3" placeholder="e.g. 1990s kitchen, wall we'd love to remove, hoping to start in spring"></textarea>
+        </div>
+
+        <!-- honeypot: bots fill this, humans never see it -->
+        <input type="text" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+
+        <button class="btn btn--honey" type="submit" id="submitBtn">
+          Get a Free Quote
+          <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <p class="micro-trust">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          No obligation. Response within 24 hours.
+        </p>
+        <p class="field-error" id="form-live" role="status" aria-live="polite" style="text-align:center"></p>
+      </form>
+
+      <div class="form-success">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="8.5 12.5 11 15 16 9.5"/></svg>
+        <h3>Thanks, we've got it.</h3>
+        <p>We'll call you within 24 hours. Talk soon, and in the meantime, start saving those inspiration photos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =================================================================
+     FOOTER. Replace [EMAIL], [ABN] and [LICENCE NO] before launch,
+     and point the social links at your real profiles.
+================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">SM</span>
+          Smart&nbsp;Makeover
+        </a>
+        <p>Design-and-build renovations for Sydney homes: kitchens, bathrooms, laundries and full home makeovers, finished properly.</p>
+        <div class="socials">
+          <a href="#" aria-label="Smart Makeover on Instagram">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Smart Makeover on Facebook">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h3>Talk to us</h3>
+        <ul class="footer-list">
+          <li><a class="tel" href="tel:0401939291">0401 939 291</a></li>
+          <li><a href="mailto:[EMAIL]">[EMAIL]</a></li>
+          <li>Mon to Sat, 7am to 6pm</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul class="footer-list">
+          <li><a href="#services">Kitchens</a></li>
+          <li><a href="#services">Bathrooms</a></li>
+          <li><a href="#services">Full home makeovers</a></li>
+          <li><a href="#services">Laundries &amp; extras</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Service areas</h3>
+        <ul class="footer-list">
+          <li><a href="#areas">Inner West &amp; Eastern Suburbs</a></li>
+          <li><a href="#areas">North Shore &amp; Beaches</a></li>
+          <li><a href="#areas">Hills &amp; Greater West</a></li>
+          <li><a href="#areas">Shire &amp; St George</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>&copy; <span id="year">2026</span> Smart Makeover. ABN [ABN]. NSW builder licence [LICENCE NO].</span>
+      <span>Sydney, NSW</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile sticky bar: call first (it converts best), quote second -->
+<div class="mobile-bar">
+  <a class="btn btn--honey" href="tel:0401939291">Call 0401 939 291</a>
+  <a class="btn btn--ghost" href="#quote">Get a Free Quote</a>
+</div>
+
+<script>
+/* Everything below is plain vanilla JS: no libraries, nothing to build. */
+(function () {
+  'use strict';
+  // Flag JS availability: entrance/reveal styles only apply with .js,
+  // so the page is never blank if scripts don't run.
+  document.documentElement.classList.add('js');
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Sticky header: solid + blurred once you scroll ----- */
+  var header = document.getElementById('header');
+  var sentinel = document.createElement('div');
+  sentinel.style.cssText = 'position:absolute;top:24px;height:1px;width:1px';
+  document.body.prepend(sentinel);
+  new IntersectionObserver(function (entries) {
+    header.classList.toggle('is-scrolled', !entries[0].isIntersecting);
+  }).observe(sentinel);
+
+  /* ---------- Scroll reveals (once, gentle, staggered) ------------ */
+  var revealables = document.querySelectorAll('.reveal');
+  if (reduceMotion) {
+    revealables.forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+    revealables.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- Before / after comparison slider -------------------- */
+  // A native <input type="range"> stretched over the photos drives the
+  // clip, so mouse drag, touch and arrow keys all work for free.
+  var slider = document.getElementById('baSlider');
+  if (slider) {
+    var range = slider.querySelector('.ba-range');
+    var before = slider.querySelector('.ba-before');
+    var handle = slider.querySelector('.ba-handle');
+    var paint = function () {
+      var v = Number(range.value);
+      before.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)';
+      handle.style.left = v + '%';
+    };
+    range.addEventListener('input', paint);
+    paint();
+  }
+
+  /* ---------- FAQ accordion ---------------------------------------- */
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var btn = item.querySelector('.faq-q');
+    btn.addEventListener('click', function () {
+      var open = item.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  /* ---------- Image swap-slot fallback ------------------------------
+     Placeholder photos are hot-linked stock. If one ever fails to
+     load (offline, blocked, or removed), swap in a labelled slot so
+     the layout still reads as designed, never broken.               */
+  document.querySelectorAll('img[data-slot]').forEach(function (img) {
+    img.addEventListener('error', function () {
+      var slot = document.createElement('div');
+      slot.className = ('img-slot ' + img.className).trim();
+      slot.innerHTML =
+        '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">' +
+        '<rect x="3" y="3" width="18" height="18" rx="2"/>' +
+        '<circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>' +
+        '<span>' + img.getAttribute('data-slot') + '</span>';
+      // keep the intended footprint so the layout doesn't jump
+      slot.style.aspectRatio = img.getAttribute('width') + '/' + img.getAttribute('height');
+      img.replaceWith(slot);
+    }, { once: true });
+  });
+
+  /* ---------- Quote form: validate, then (for now) simulate -------- */
+  var form = document.getElementById('quoteForm');
+  if (!form) return;
+  var live = document.getElementById('form-live');
+
+  function setError(id, on) {
+    var input = document.getElementById('f-' + id);
+    var field = input.closest('.field');
+    field.classList.toggle('has-error', on);
+    input.setAttribute('aria-invalid', on ? 'true' : 'false');
+    if (on) input.setAttribute('aria-describedby', 'err-' + id);
+  }
+
+  function validate() {
+    var firstBad = null;
+    var checks = [
+      ['name',   function (v) { return v.trim().length >= 2; }],
+      ['phone',  function (v) { return v.replace(/\D/g, '').length >= 8; }],
+      ['email',  function (v) { return v === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }],
+      ['suburb', function (v) { return v.trim().length >= 2; }],
+      ['type',   function (v) { return v !== ''; }]
+    ];
+    checks.forEach(function (c) {
+      var el = document.getElementById('f-' + c[0]);
+      var ok = c[1](el.value);
+      setError(c[0], !ok);
+      if (!ok && !firstBad) firstBad = el;
+    });
+    return firstBad;
+  }
+
+  // validate on blur, clear as the visitor fixes things
+  ['name', 'phone', 'email', 'suburb', 'type'].forEach(function (id) {
+    var el = document.getElementById('f-' + id);
+    el.addEventListener('blur', function () { validate(); });
+    el.addEventListener('input', function () { setError(id, false); });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (form.elements.company.value) return; // honeypot tripped: ignore bots
+    var firstBad = validate();
+    if (firstBad) {
+      live.textContent = 'Almost there, check the highlighted fields.';
+      firstBad.focus();
+      return;
+    }
+    live.textContent = '';
+    var btn = document.getElementById('submitBtn');
+    var btnHTML = btn.innerHTML;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    /* ============================================================
+       CONNECT FORM HERE (placeholder handler)
+       ------------------------------------------------------------
+       Option A, Formspree (no backend, ~2 minutes):
+         1. Sign up free at https://formspree.io, create a form,
+            copy your endpoint, e.g. https://formspree.io/f/abcdwxyz
+         2. Replace the SIMULATED SUBMIT block below with:
+
+            fetch('https://formspree.io/f/YOUR_FORM_ID', {
+              method: 'POST',
+              headers: { 'Accept': 'application/json' },
+              body: new FormData(form)
+            }).then(function (r) {
+              if (r.ok) { showSuccess(); }
+              else { showRetry(); }
+            }).catch(showRetry);
+
+       Option B: point the form at any email service or your own
+       endpoint; the field names are name, phone, email, suburb,
+       project_type, message.
+       ============================================================ */
+
+    // SIMULATED SUBMIT (remove when connecting a real endpoint)
+    window.setTimeout(showSuccess, 700);
+
+    function showSuccess() {
+      document.querySelector('.quote-form').classList.add('is-done');
+    }
+    function showRetry() {
+      btn.disabled = false;
+      btn.innerHTML = btnHTML;
+      live.textContent = 'That didn’t send. Please try again, or call 0401 939 291.';
+    }
+  });
+
+  /* ---------- Footer year ------------------------------------------ */
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
