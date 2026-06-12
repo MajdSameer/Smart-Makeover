@@ -56,11 +56,12 @@
 }
 </script>
 
-<!-- Typography: Archivo variable, one family doing all the work.
-     Display runs expanded + heavy, body runs normal width. -->
+<!-- Typography: Bricolage Grotesque (variable display, real character)
+     paired with Hanken Grotesk (clean humanist body). Contrast axis:
+     expressive display against a quiet workhorse. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,100..125,400..900;1,100..125,400..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 /* ===================================================================
@@ -110,8 +111,8 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px)}
 body{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
-  font-size:1.0625rem;line-height:1.6;font-stretch:100%;
+  font-family:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:1.0625rem;line-height:1.6;
   color:var(--ink);background:var(--paper);
   -webkit-font-smoothing:antialiased;
 }
@@ -119,8 +120,10 @@ img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 ul,ol{list-style:none}
-/* The display voice: same family, pushed wide and heavy */
-h1,h2,h3{font-stretch:118%;font-weight:800;text-wrap:balance}
+/* The display voice: Bricolage Grotesque, optical-sized, heavy */
+h1,h2,h3{font-family:"Bricolage Grotesque","Hanken Grotesk",sans-serif;
+  font-optical-sizing:auto;font-weight:700;text-wrap:balance}
+.display{font-family:"Bricolage Grotesque","Hanken Grotesk",sans-serif;font-optical-sizing:auto}
 p{text-wrap:pretty}
 ::selection{background:var(--brand);color:#fff}
 
@@ -152,6 +155,15 @@ p{text-wrap:pretty}
 }
 .section-head p{color:var(--muted);font-size:1.125rem;max-width:60ch}
 .section--dark .section-head p{color:var(--muted-on-dark)}
+/* a short brand-red rule draws itself in under each section heading */
+@media (prefers-reduced-motion:no-preference){
+  html.js .section-head h2::after{content:"";display:block;width:56px;height:3px;
+    border-radius:2px;background:var(--brand);margin-top:.55rem;
+    transform:scaleX(0);transform-origin:left;
+    transition:transform .6s var(--ease-out) .12s}
+  html.js .section--dark .section-head h2::after{background:var(--brand-bright)}
+  html.js .section-head.is-in h2::after{transform:scaleX(1)}
+}
 
 /* ============================ ICONS ============================ */
 /* One icon family across the page: Lucide (ISC licence), 24px grid,
@@ -208,7 +220,7 @@ p{text-wrap:pretty}
   box-shadow:0 1px 0 var(--line-dark);
 }
 .header-row{display:flex;align-items:center;gap:1.5rem;width:100%}
-.brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;font-weight:800;font-stretch:118%;font-size:1.15rem;letter-spacing:-0.01em}
+.brand{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;font-family:"Bricolage Grotesque","Hanken Grotesk",sans-serif;font-optical-sizing:auto;font-weight:700;font-size:1.2rem;letter-spacing:-0.02em}
 .brand-chev{width:30px;height:26px;flex:none;fill:none;stroke-width:3.4;
   stroke-linecap:round;stroke-linejoin:round}
 .brand-chev path:nth-child(1){stroke:var(--brand-bright)}
@@ -261,31 +273,71 @@ p{text-wrap:pretty}
 }
 .hero-inner{position:relative;z-index:2;width:100%}
 .hero h1{
-  font-size:clamp(2.6rem,6.2vw,5.2rem);
-  line-height:1.02;letter-spacing:-0.025em;
+  font-size:clamp(2.6rem,6.6vw,5.6rem);
+  line-height:1.0;letter-spacing:-0.03em;
   color:var(--ink-on-dark);
-  max-width:24ch;
-  margin-bottom:.4em;
+  max-width:18ch;
+  margin-bottom:.45em;
 }
-.hero h1 em{font-style:italic;color:var(--brand-bright)}
+/* each headline line sits in an overflow-clipped track so it can rise
+   from below its own mask: the editorial reveal */
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .line>span{display:block;will-change:transform}
+.hero h1 em{font-style:italic;color:var(--brand-bright);position:relative}
+/* a red underline draws in beneath the emphasis line */
+.hero h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:-.04em;height:3px;border-radius:2px;
+  background:var(--brand-bright);transform:scaleX(0);transform-origin:left;
+}
 .hero-sub{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:36rem;margin-bottom:2.2rem;color:#dde2e6}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center}
+/* one light sheen sweeps across the hero on load, like sun moving
+   over a finished benchtop. Decorative, plays once, never loops. */
+.hero-sheen{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.hero-sheen::before{
+  content:"";position:absolute;top:-30%;left:-60%;width:40%;height:160%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.16),transparent);
+  transform:translateX(0) skewX(-12deg);opacity:0;
+}
 /* hero swap-slot fallback keeps the band composed if the photo dies */
 .hero .img-slot{position:absolute;inset:0;border-radius:0;border:none;background:var(--navy-800)}
 
-/* Hero entrance: one orchestrated load-in. The photo settles from a
-   slight zoom while the copy rises. Runs only when JS adds .js, so
-   content is never gated behind a script. */
+/* Hero entrance: an orchestrated load-in. Headline lines rise from
+   their masks, the photo settles from a slight zoom, a sheen sweeps
+   once, the emphasis underline draws in. Runs only when JS adds .js,
+   so content is never gated behind a script. */
 @media (prefers-reduced-motion:no-preference){
-  html.js .hero [data-rise]{opacity:0;transform:translateY(26px);
+  html.js .hero h1 .line>span{transform:translateY(112%);
+    animation:line-rise 900ms var(--ease-out) forwards}
+  html.js .hero h1 .line:nth-child(1)>span{animation-delay:140ms}
+  html.js .hero h1 .line:nth-child(2)>span{animation-delay:280ms}
+  html.js .hero h1 em::after{animation:draw-x 600ms var(--ease-out) 900ms forwards}
+  html.js .hero [data-rise]{opacity:0;transform:translateY(22px);
     animation:rise var(--t-reveal) var(--ease-out) forwards}
-  html.js .hero [data-rise="2"]{animation-delay:100ms}
-  html.js .hero [data-rise="3"]{animation-delay:200ms}
-  html.js .hero-bg img{transform:scale(1.07);
-    animation:settle 1400ms var(--ease-out) forwards}
+  html.js .hero-sub[data-rise]{animation-delay:480ms}
+  html.js .hero-ctas[data-rise]{animation-delay:600ms}
+  html.js .hero-bg img{transform:scale(1.08);
+    animation:settle 1600ms var(--ease-out) forwards}
+  html.js .hero-sheen::before{animation:sheen 1500ms var(--ease-out) 500ms forwards}
 }
+@keyframes line-rise{to{transform:translateY(0)}}
+@keyframes draw-x{to{transform:scaleX(1)}}
 @keyframes rise{to{opacity:1;transform:none}}
 @keyframes settle{to{transform:scale(1)}}
+@keyframes sheen{
+  0%{opacity:0;transform:translateX(0) skewX(-12deg)}
+  20%{opacity:1}
+  100%{opacity:0;transform:translateX(420%) skewX(-12deg)}
+}
+/* scroll-driven parallax: the photo drifts slower than the page.
+   Uses the CSS scroll timeline where supported; no scroll listeners. */
+@supports (animation-timeline: scroll()){
+  @media (prefers-reduced-motion:no-preference){
+    html.js .hero-bg{animation:parallax linear both;
+      animation-timeline:scroll(root);animation-range:0 90vh}
+  }
+}
+@keyframes parallax{to{transform:translateY(11%)}}
 
 /* ======================== TRUST STRIP ========================= */
 /* White card overlaps the hero base: the page literally builds on
@@ -299,7 +351,7 @@ p{text-wrap:pretty}
 .trust-item{padding:1.6rem 1.75rem;display:flex;flex-direction:column;gap:.2rem}
 .trust-item + .trust-item{border-left:1px solid var(--line)}
 .trust-item strong{
-  font-size:1.5rem;font-weight:800;font-stretch:118%;
+  font-family:"Bricolage Grotesque","Hanken Grotesk",sans-serif;font-optical-sizing:auto;font-size:1.55rem;font-weight:700;
   letter-spacing:-0.015em;color:var(--ink);font-variant-numeric:tabular-nums;
   display:flex;align-items:center;gap:.45rem;line-height:1.2;
 }
@@ -432,6 +484,16 @@ p{text-wrap:pretty}
 .vs-note{margin-top:2.2rem;font-size:.95rem;max-width:72ch;color:var(--muted-on-dark)}
 .vs-ctas{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.4rem}
 @media (max-width:860px){.vs-grid{grid-template-columns:1fr}}
+/* the ticks and crosses draw themselves on as each column reveals,
+   so the comparison reads as a verdict being written, not static copy */
+@media (prefers-reduced-motion:no-preference){
+  html.js .vs-col li .icon{stroke-dasharray:30;stroke-dashoffset:30;
+    transition:stroke-dashoffset .55s var(--ease-out)}
+  html.js .vs-col.is-in li .icon{stroke-dashoffset:0}
+  html.js .vs-col.is-in li:nth-child(2) .icon{transition-delay:.09s}
+  html.js .vs-col.is-in li:nth-child(3) .icon{transition-delay:.18s}
+  html.js .vs-col.is-in li:nth-child(4) .icon{transition-delay:.27s}
+}
 
 /* =========================== PROCESS ========================== */
 /* A real 4-step sequence told as a sticky deck: each card pins
@@ -457,7 +519,7 @@ p{text-wrap:pretty}
   box-shadow:0 -10px 40px -20px rgba(13,20,40,.35);
 }
 .pcard-num{
-  font-size:clamp(4rem,9vw,7.5rem);font-weight:800;font-stretch:125%;
+  font-family:"Bricolage Grotesque","Hanken Grotesk",sans-serif;font-optical-sizing:auto;font-size:clamp(4rem,9vw,7.5rem);font-weight:700;
   letter-spacing:-0.03em;line-height:1;font-variant-numeric:tabular-nums;
   color:var(--brand);
 }
@@ -502,7 +564,7 @@ p{text-wrap:pretty}
   box-shadow:0 24px 50px -28px rgba(13,20,40,.55);
 }
 .review-quote-mark{
-  font-size:2.8rem;line-height:.6;font-weight:800;font-stretch:118%;
+  font-family:"Bricolage Grotesque","Hanken Grotesk",sans-serif;font-optical-sizing:auto;font-size:2.8rem;line-height:.6;font-weight:700;
   color:var(--brand);height:.55em;
 }
 .review--feature .review-quote-mark{color:var(--brand-bright)}
@@ -645,7 +707,7 @@ p{text-wrap:pretty}
 .footer-call p{font-size:1.05rem;margin-bottom:.6rem;color:var(--muted-on-dark)}
 .footer-tel{
   display:inline-block;text-decoration:none;
-  font-size:clamp(2.2rem,7vw,5rem);font-weight:800;font-stretch:122%;
+  font-family:"Bricolage Grotesque","Hanken Grotesk",sans-serif;font-optical-sizing:auto;font-size:clamp(2.2rem,7vw,5rem);font-weight:700;
   letter-spacing:-0.025em;line-height:1.05;color:var(--ink-on-dark);
   font-variant-numeric:tabular-nums;
   transition:color var(--t-ui) var(--ease-out);
@@ -774,8 +836,12 @@ p{text-wrap:pretty}
          alt="" width="2000" height="1250" fetchpriority="high"
          data-slot="Hero photo: your best finished kitchen or living space">
   </div>
+  <div class="hero-sheen" aria-hidden="true"></div>
   <div class="container hero-inner">
-    <h1 data-rise="1">Love your kitchen again. <em>Skip the renovation.</em></h1>
+    <h1>
+      <span class="line"><span>Love your kitchen again.</span></span>
+      <span class="line"><span><em>Skip the renovation.</em></span></span>
+    </h1>
     <p class="hero-sub" data-rise="2">Sydney's kitchen, bathroom and laundry makeover specialists. A third of the renovation cost, done in 10 days, without the mess.</p>
     <div class="hero-ctas" data-rise="3">
       <a class="btn btn--primary" href="#quote">
@@ -802,7 +868,7 @@ p{text-wrap:pretty}
         <span>of a full renovation</span>
       </div>
       <div class="trust-item">
-        <strong>10 days</strong>
+        <strong><span class="count" data-count="10">10</span>&nbsp;days</strong>
         <span>from start to finished space</span>
       </div>
       <div class="trust-item">
@@ -1426,6 +1492,27 @@ p{text-wrap:pretty}
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
     revealables.forEach(function (el) { io.observe(el); });
   }
+
+  /* ---------- Count-up stats (the headline numbers tick up) -------- */
+  // Honest counting: only the literal integer animates from 0 to its
+  // real value the first time it scrolls into view.
+  document.querySelectorAll('.count').forEach(function (el) {
+    var target = Number(el.getAttribute('data-count'));
+    if (reduceMotion || !target) { el.textContent = target || el.textContent; return; }
+    el.textContent = '0';
+    new IntersectionObserver(function (entries, obs) {
+      if (!entries[0].isIntersecting) return;
+      obs.disconnect();
+      var t0 = performance.now(), DUR = 1100;
+      (function tick(now) {
+        var p = Math.min((now - t0) / DUR, 1);
+        var e = 1 - Math.pow(1 - p, 3);              // ease-out cubic
+        el.textContent = Math.round(e * target);
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = target;
+      })(t0);
+    }, { threshold: 1 }).observe(el);
+  });
 
   /* ---------- Before / after comparison slider -------------------- */
   // A native <input type="range"> stretched over the photos drives the
