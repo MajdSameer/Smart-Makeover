@@ -34,7 +34,7 @@ Built, warm-grained, certain. Like oiled hardwood and a laser level line: warm m
 
 ## Visual language
 
-- Palette strategy: Committed. Cool charcoal carries the dark bands (hero, guarantee, final CTA, footer); pure white and a cool slate tint between; burnt terracotta as the single accent, under 10% of surface. Rust against cool grey: brick and steel, the materials of the trade.
+- Palette strategy: Committed, derived from the real Smart Makeover logo (red, navy and light blue chevrons). Deep navy carries the dark bands (hero, vs panel, final CTA, footer); pure white and a light-blue tint between; the logo red is the single CTA accent, under 10% of surface. The chevron mark is redrawn as an inline SVG in the header, footer and favicon.
 - Type: Archivo variable, one family doing all the work. Display runs expanded (118-125%) and heavy (800); body runs normal width. Tabular figures for numbers.
 - Motion: restrained and purposeful. Strong ease-out curves, sub-300ms UI transitions, a cinematic full-bleed hero load-in (photo settles from a slight zoom while copy rises), a pure-CSS sticky-deck process sequence, a one-time slider sweep that teaches the before/after affordance, scroll reveals that enhance already-visible content, full prefers-reduced-motion fallback.
 - Imagery: full-bleed hero photography, photographic bento tiles, one interactive before/after comparison slider. All stock placeholders are labelled swap slots.
