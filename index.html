@@ -162,6 +162,8 @@ p{text-wrap:pretty}
     transition:transform .6s var(--ease-out) .12s}
   html.js .section--dark .section-head h2::after{background:var(--brand-bright)}
   html.js .section-head.is-in h2::after{transform:scaleX(1)}
+  /* reviews heading nests its section-head inside .reviews-head */
+  html.js .reviews-head.is-in .section-head h2::after{transform:scaleX(1)}
 }
 
 /* ============================ ICONS ============================ */
@@ -469,6 +471,9 @@ p{text-wrap:pretty}
 }
 .vs-col{border-radius:var(--radius-card);padding:clamp(1.6rem,3vw,2.4rem)}
 .vs-col h3{font-size:1.35rem;letter-spacing:-0.015em;margin-bottom:1.3rem}
+/* white cards sit inside a dark section, so their heading must opt back
+   out of the section's light-on-dark heading colour */
+.vs--us h3{color:var(--ink)}
 .vs-col ul{display:grid;gap:1rem}
 .vs-col li{display:flex;gap:.75rem;align-items:flex-start;font-size:1.02rem;line-height:1.5}
 .vs-col li .icon{margin-top:.22em;width:1.1em;height:1.1em}
@@ -656,7 +661,7 @@ p{text-wrap:pretty}
   border-radius:var(--radius-card);padding:clamp(1.5rem,3vw,2.5rem);
   box-shadow:0 30px 70px -35px rgba(0,0,0,.9);
 }
-.quote-card h3{font-size:1.35rem;letter-spacing:-0.015em;margin-bottom:.3rem}
+.quote-card h3{color:var(--ink);font-size:1.35rem;letter-spacing:-0.015em;margin-bottom:.3rem}
 .quote-card .form-note{font-size:.92rem;color:var(--muted);margin-bottom:1.5rem}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .field{margin-bottom:1.1rem}
@@ -1480,7 +1485,9 @@ p{text-wrap:pretty}
 
   /* ---------- Scroll reveals (once, gentle, staggered) ------------ */
   var revealables = document.querySelectorAll('.reveal');
-  if (reduceMotion) {
+  // Safety net: if motion is off or the browser can't observe, reveal
+  // everything immediately. Content is never left gated behind script.
+  if (reduceMotion || !('IntersectionObserver' in window)) {
     revealables.forEach(function (el) { el.classList.add('is-in'); });
   } else {
     var io = new IntersectionObserver(function (entries) {
